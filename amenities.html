@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>設備・アメニティ | SORA</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.9;
+    }
+
+
+    /* ===== HERO ===== */
+
+    .hero {
+      width: 86%;
+      height: 65vh;
+      min-height: 500px;
+      margin: 50px auto 0;
+
+      background-image:
+        linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)),
+        url("images/AMENITIES.jpg");
+
+      background-size: cover;
+      background-position: center;
+
+      position: relative;
+    }
+
+
+    .hero-content {
+      position: absolute;
+      left: 45px;
+      bottom: 40px;
+
+      color: white;
+
+      text-shadow:
+        0 2px 12px rgba(0,0,0,0.35);
+    }
+
+
+    .hero-en {
+      font-size: clamp(40px, 6vw, 75px);
+      letter-spacing: 0.12em;
+      font-weight: 300;
+      line-height: 1.05;
+    }
+
+
+    .hero-ja {
+      margin-top: 15px;
+      font-size: 14px;
+      letter-spacing: 0.25em;
+    }
+
+
+    /* ===== INTRO ===== */
+
+    .intro {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 110px 30px;
+      text-align: center;
+    }
+
+
+    .intro-title {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: #56a9b7;
+      margin-bottom: 20px;
+    }
+
+
+    .intro h2 {
+      font-size: clamp(27px, 3.5vw, 45px);
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+      margin-bottom: 30px;
+    }
+
+
+    .intro p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 2.2;
+      color: #666;
+    }
+
+
+    /* ===== AMENITIES ===== */
+
+    .amenities {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 0 30px 110px;
+    }
+
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+
+    .section-title .en {
+      font-size: 12px;
+      letter-spacing: 0.35em;
+      color: #56a9b7;
+    }
+
+
+    .section-title h2 {
+      margin-top: 12px;
+      font-size: 27px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+    }
+
+
+    /* ===== カテゴリー ===== */
+
+    .amenity-category {
+      margin-bottom: 70px;
+    }
+
+
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+
+    .category-number {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: #56a9b7;
+    }
+
+
+    .category-title h3 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+    }
+
+
+    /* ===== アイテム ===== */
+
+    .amenity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+
+    .amenity-item {
+      padding: 18px 15px;
+      border: 1px solid #e3eeee;
+      background: #fff;
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+    }
+
+
+    /* ===== 最後のメッセージ ===== */
+
+    .note {
+      background: #f5fbfb;
+      padding: 50px 30px;
+      text-align: center;
+      margin-bottom: 110px;
+    }
+
+
+    .note-en {
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      color: #56a9b7;
+      margin-bottom: 15px;
+    }
+
+
+    .note p {
+      font-size: 13px;
+      line-height: 2;
+      color: #666;
+    }
+
+
+    /* ===== TOPへ戻る ===== */
+
+    footer {
+      padding: 50px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+
+    .back {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+
+      color: #333;
+      text-decoration: none;
+
+      padding: 12px 22px;
+
+      border:
+        1px solid rgba(51, 51, 51, 0.6);
+
+      border-radius: 30px;
+
+      background:
+        rgba(255, 255, 255, 0.15);
+
+      letter-spacing: 2px;
+
+      backdrop-filter: blur(5px);
+
+      transition: 0.3s;
+    }
+
+
+    .back:hover {
+      background:
+        rgba(51, 51, 51, 0.15);
+    }
+
+
+    /* ===== スマホ ===== */
+
+   @media (max-width: 768px) {
+
+.intro p {
+    text-align: left;
+  }
+
+  .hero {
+    width: 92%;
+    height: 260px;
+    min-height: 0;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-top: 30px;
+  }
+
+  .hero-content {
+    left: 25px;
+    bottom: 30px;
+  }
+
+  .hero-en {
+    font-size: 40px;
+  }
+
+  .intro {
+    padding: 75px 25px;
+  }
+
+.intro h2 {
+  font-size: 24px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+  .amenities {
+    padding: 0 25px 75px;
+  }
+
+ .amenity-grid {
+  display: block;
+  border: 1px solid #e3eeee;
+  padding: 18px 20px;
+}
+
+.amenity-item {
+  border: none;
+  border-bottom: 1px solid #edf3f3;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.amenity-item:last-child {
+  border-bottom: none;
+}
+
+  .amenity-category {
+    margin-bottom: 55px;
+  }
+
+  .note {
+    margin-bottom: 75px;
+    padding: 40px 25px;
+  }
+.note p {
+  text-align: left;
+}
+
+}
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- ===== HERO ===== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-en">
+        AMENITIES
+      </div>
+
+      <div class="hero-ja">
+        設備・アメニティ
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ===== INTRO ===== -->
+
+  <section class="intro">
+
+    <div class="intro-title">
+      COMFORTABLE STAY
+    </div>
+
+
+    <h2>
+      快適な滞在を、もっと心地よく。
+    </h2>
+
+
+    <p>
+      ご滞在中に快適にお過ごしいただけるよう、
+      お部屋の設備からキッチン用品、
+      バスルームやアメニティまでご用意しています。
+      <br><br>
+      ご家族やグループでの滞在にも使いやすい、
+      「暮らすように泊まる」ための空間です。
+    </p>
+
+  </section>
+
+
+
+  <!-- ===== AMENITIES LIST ===== -->
+
+  <section class="amenities">
+
+
+    <div class="section-title">
+
+      <div class="en">
+        FACILITIES & AMENITIES
+      </div>
+
+      <h2>
+        設備・アメニティ
+      </h2>
+
+    </div>
+
+
+
+    <!-- ===== お部屋 ===== -->
+
+    <div class="amenity-category">
+
+      <div class="category-title">
+
+        <div class="category-number">
+          01
+        </div>
+
+        <h3>
+          お部屋
+        </h3>
+
+      </div>
+
+
+      <div class="amenity-grid">
+
+        <div class="amenity-item">
+          シングルベッド ×4
+        </div>
+
+        <div class="amenity-item">
+          シングルソファベッド ×1
+        </div>
+
+        <div class="amenity-item">
+          マットレス ×1
+        </div>
+
+        <div class="amenity-item">
+          エアコン
+        </div>
+
+        <div class="amenity-item">
+          テレビ
+        </div>
+
+        <div class="amenity-item">
+          高速Wi-Fi
+        </div>
+
+        <div class="amenity-item">
+          ダイニングテーブル
+        </div>
+
+        <div class="amenity-item">
+          ハンガー
+        </div>
+
+        <div class="amenity-item">
+          遮光カーテン
+        </div>
+
+        <div class="amenity-item">
+          アイロン
+        </div>
+
+        <div class="amenity-item">
+          アイロン台
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===== キッチン ===== -->
+
+    <div class="amenity-category">
+
+      <div class="category-title">
+
+        <div class="category-number">
+          02
+        </div>
+
+        <h3>
+          キッチン
+        </h3>
+
+      </div>
+
+
+      <div class="amenity-grid">
+
+        <div class="amenity-item">
+          冷蔵庫
+        </div>
+
+        <div class="amenity-item">
+          電子レンジ
+        </div>
+
+        <div class="amenity-item">
+          トースター
+        </div>
+
+        <div class="amenity-item">
+          電気ケトル
+        </div>
+
+        <div class="amenity-item">
+          ガスコンロ
+        </div>
+
+        <div class="amenity-item">
+          フライパン・鍋
+        </div>
+
+        <div class="amenity-item">
+          包丁・まな板
+        </div>
+
+        <div class="amenity-item">
+          食器・グラス・マグカップ
+        </div>
+
+        <div class="amenity-item">
+          カトラリー
+        </div>
+
+        <div class="amenity-item">
+          キッチン用品一式
+        </div>
+
+        <div class="amenity-item">
+          電気鍋
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===== バスルーム ===== -->
+
+    <div class="amenity-category">
+
+      <div class="category-title">
+
+        <div class="category-number">
+          03
+        </div>
+
+        <h3>
+          バスルーム
+        </h3>
+
+      </div>
+
+
+      <div class="amenity-grid">
+
+        <div class="amenity-item">
+          バス・トイレ別
+        </div>
+
+        <div class="amenity-item">
+          独立洗面台
+        </div>
+
+        <div class="amenity-item">
+          シャワー・バスタブ
+        </div>
+
+        <div class="amenity-item">
+          シャンプー
+        </div>
+
+        <div class="amenity-item">
+          コンディショナー
+        </div>
+
+        <div class="amenity-item">
+          ボディソープ
+        </div>
+
+        <div class="amenity-item">
+          ハンドソープ
+        </div>
+
+        <div class="amenity-item">
+          トイレットペーパー
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===== アメニティ ===== -->
+
+    <div class="amenity-category">
+
+      <div class="category-title">
+
+        <div class="category-number">
+          04
+        </div>
+
+        <h3>
+          アメニティ
+        </h3>
+
+      </div>
+
+
+      <div class="amenity-grid">
+
+        <div class="amenity-item">
+          バスタオル
+        </div>
+
+        <div class="amenity-item">
+          フェイスタオル
+        </div>
+
+        <div class="amenity-item">
+          ドライヤー
+        </div>
+
+        <div class="amenity-item">
+          ヘアアイロン
+        </div>
+
+        <div class="amenity-item">
+          洗濯機（全自動乾燥機つき）
+        </div>
+
+        <div class="amenity-item">
+          洗濯用洗剤
+        </div>
+
+        <div class="amenity-item">
+          ティッシュ
+        </div>
+
+        <div class="amenity-item">
+          ゴミ袋
+        </div>
+
+        <div class="amenity-item">
+          化粧水
+        </div>
+
+        <div class="amenity-item">
+          乳液
+        </div>
+
+        <div class="amenity-item">
+          クレンジング
+        </div>
+
+        <div class="amenity-item">
+          歯ブラシ
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ===== NOTE ===== -->
+
+  <section class="note">
+
+    <div class="note-en">
+      ENJOY YOUR STAY
+    </div>
+
+    <p>
+      必要なものを揃え、快適にお過ごしいただける空間をご用意しています。<br>
+      ぜひごゆっくりお過ごしください。
+    </p>
+
+  </section>
+
+
+
+  <!-- ===== TOPへ戻る ===== -->
+
+  <footer>
+
+    <a
+      href="index.html"
+      class="back"
+    >
+      ← TOPへ戻る
+    </a>
+
+  </footer>
+
+
+</body>
+</html>

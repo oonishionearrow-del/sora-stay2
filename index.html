@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SORA</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           ページ全体
+        ========================= */
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background: #000;
+
+            font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+
+            color: white;
+
+            position: relative;
+        }
+
+
+        /* =========================
+           背景写真
+           写真だけじわーっと表示
+        ========================= */
+
+        body::after {
+            content: "";
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-image: url("images/main.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            opacity: 0;
+
+            animation: backgroundFade 4s ease forwards;
+
+            z-index: -2;
+        }
+
+
+        /* =========================
+           背景を少し暗くする
+           最後はこの明るさで停止
+        ========================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.25);
+
+            z-index: -1;
+        }
+
+
+        /* =========================
+           背景フェード
+        ========================= */
+
+        @keyframes backgroundFade {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           左上のロゴ
+        ========================= */
+
+        .logo {
+            position: absolute;
+
+            top: 30px;
+            left: 30px;
+
+            width: 250px;
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================
+           ようこそ
+        ========================= */
+
+        .welcome {
+            position: absolute;
+
+            top: 50%;
+            left: 20%;
+
+            transform: translateY(-50%);
+
+            font-size: 38px;
+
+            letter-spacing: 10px;
+
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+
+        /* =========================
+           右上の予約＋三本線
+        ========================= */
+
+        .top-menu {
+            position: fixed;
+
+            top: 30px;
+            right: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            z-index: 20;
+        }
+
+
+        /* ご予約はこちら */
+
+        .reservation {
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 20px;
+
+            background: rgba(255, 255, 255, 0.2);
+
+            border: 1px solid rgba(255, 255, 255, 0.6);
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+    letter-spacing: 2px;
+
+    backdrop-filter: blur(5px);
+
+    transition: 0.3s;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 1.1;
+}
+
+
+        /* 予約ボタンにマウスを乗せたとき */
+
+        .reservation:hover {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+
+        /* =========================
+           三本線
+        ========================= */
+
+        .menu-button {
+            width: 45px;
+            height: 45px;
+
+            border: none;
+
+            background: rgba(255, 255, 255, 0.15);
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            border-radius: 50%;
+
+            backdrop-filter: blur(5px);
+        }
+
+
+        /* =========================
+           メニュー
+        ========================= */
+
+        .menu {
+            position: fixed;
+
+            top: 0;
+
+            right: -300px;
+
+            width: 300px;
+
+            height: 100vh;
+
+            background: rgba(0, 40, 60, 0.92);
+
+            padding: 100px 40px 40px;
+
+            transition: right 0.4s ease;
+
+            z-index: 30;
+        }
+
+
+        /* メニューが開いたとき */
+
+        .menu.open {
+            right: 0;
+        }
+
+
+        /* =========================
+           メニュー項目
+        ========================= */
+
+        .menu a {
+            display: block;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            letter-spacing: 4px;
+
+            padding: 18px 0;
+
+            border-bottom:
+                1px solid rgba(255, 255, 255, 0.3);
+
+            transition: 0.3s;
+        }
+
+
+        /* メニューにマウスを乗せたとき */
+
+        .menu a:hover {
+            padding-left: 10px;
+
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+
+        /* =========================
+           閉じるボタン
+        ========================= */
+
+        .close {
+            position: absolute;
+
+            top: 30px;
+
+            right: 35px;
+
+            font-size: 30px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           スマホ
+        ========================= */
+
+@media (max-width: 800px) {
+
+    .logo {
+        width: 120px;
+        top: 20px;
+        left: 20px;
+    }
+
+ .welcome {
+    position: absolute;
+    top: 200px;
+    bottom: auto;
+    left: 10%;
+
+    transform: none;
+
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+    .top-menu {
+        top: 20px;
+        right: 20px;
+        gap: 8px;
+    }
+
+    .reservation {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .menu-button {
+        width: 42px;
+        height: 42px;
+        font-size: 25px;
+    }
+
+    .menu {
+        width: 220px;
+    }
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- 左上のロゴ -->
+
+    <img
+        src="images/logo.png"
+        alt="SORAのロゴ"
+        class="logo"
+    >
+
+
+    <!-- ようこそ -->
+
+    <div class="welcome">
+
+        ようこそ SORA へ
+
+    </div>
+
+
+    <!-- 右上：予約＋三本線 -->
+
+    <div class="top-menu">
+
+
+        <!-- 予約 -->
+
+        <a
+            href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+            class="reservation"
+            target="_blank"
+        >
+             <span>ご予約はこちら</span>
+    <small>RESERVATION</small>
+        </a>
+
+
+        <!-- 三本線 -->
+
+        <button
+            class="menu-button"
+            onclick="openMenu()"
+        >
+
+            ☰
+
+        </button>
+
+    </div>
+
+
+    <!-- メニュー -->
+
+    <div
+        class="menu"
+        id="menu"
+    >
+
+
+        <!-- 閉じる -->
+
+        <div
+            class="close"
+            onclick="closeMenu()"
+        >
+
+            ×
+
+        </div>
+
+
+        <a href="concept.html">
+            CONCEPT
+        </a>
+
+
+        <a href="room.html">
+            ROOM
+        </a>
+
+
+        <a href="amenities.html">
+            AMENITIES
+        </a>
+
+
+        <a href="access.html">
+            ACCESS
+        </a>
+
+<a href="contact.html">
+    CONTACT
+</a>
+
+
+        <a
+            href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+            target="_blank"
+        >
+            RESERVATION
+        </a>
+
+
+    </div>
+
+
+    <script>
+
+
+        /* =========================
+           メニューを開く
+        ========================= */
+
+        function openMenu() {
+
+            document
+                .getElementById("menu")
+                .classList
+                .add("open");
+
+        }
+
+
+        /* =========================
+           メニューを閉じる
+        ========================= */
+
+        function closeMenu() {
+
+            document
+                .getElementById("menu")
+                .classList
+                .remove("open");
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>

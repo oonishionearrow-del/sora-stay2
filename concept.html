@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>宿について | Stay Like A Resort</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    /* =========================
+       ページ全体
+    ========================= */
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+
+      color: #333;
+
+      background: #fff;
+
+      line-height: 1.9;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      width: 86%;
+
+      height: 65vh;
+
+      min-height: 500px;
+
+      margin: 50px auto 0;
+
+      background-image:
+        linear-gradient(
+          rgba(0,0,0,0.05),
+          rgba(0,0,0,0.05)
+        ),
+        url("images/concept1.jpg");
+
+      background-size: cover;
+
+      background-position: center;
+
+      position: relative;
+    }
+
+
+    .hero-content {
+      position: absolute;
+
+      left: 45px;
+
+      bottom: 40px;
+
+      color: white;
+
+      text-shadow:
+        0 2px 12px rgba(0,0,0,0.35);
+    }
+
+
+    .hero-en {
+      font-size: clamp(40px, 6vw, 75px);
+
+      letter-spacing: 0.12em;
+
+      font-weight: 300;
+
+      line-height: 1.05;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      max-width: 950px;
+
+      margin: 0 auto;
+
+      padding: 110px 30px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+
+    .intro-title {
+      font-size: 12px;
+
+      letter-spacing: 0.3em;
+
+      color: #56a9b7;
+
+      margin-bottom: 20px;
+    }
+
+
+    .intro h2 {
+      font-size: clamp(27px, 3.5vw, 45px);
+
+      font-weight: 300;
+
+      line-height: 1.5;
+
+      letter-spacing: 0.08em;
+
+      margin-bottom: 30px;
+    }
+
+
+    .intro p {
+      font-size: 14px;
+
+      line-height: 2.2;
+
+      color: #666;
+    }
+
+
+    .intro-image {
+      width: 100%;
+
+      height: 480px;
+
+      object-fit: cover;
+    }
+
+
+    /* =========================
+       CONCEPT
+    ========================= */
+
+    .concept {
+      background: #f5fbfb;
+
+      padding: 75px 30px;
+
+      text-align: center;
+    }
+
+
+    .concept-en {
+      font-size: 12px;
+
+      letter-spacing: 0.35em;
+
+      color: #56a9b7;
+
+      margin-bottom: 18px;
+    }
+
+
+    .concept h2 {
+      font-size: clamp(23px, 3vw, 36px);
+
+      font-weight: 300;
+
+      letter-spacing: 0.12em;
+
+      margin-bottom: 30px;
+    }
+
+
+    .concept p {
+      max-width: 620px;
+
+      margin: 0 auto;
+
+      font-size: 14px;
+
+      line-height: 2.3;
+
+      color: #666;
+    }
+
+
+    /* =========================
+       PERFECT FOR
+    ========================= */
+
+    .stay {
+      max-width: 950px;
+
+      margin: 0 auto;
+
+      padding: 105px 30px;
+    }
+
+
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 55px;
+    }
+
+
+    .section-title .en {
+      font-size: 12px;
+
+      letter-spacing: 0.35em;
+
+      color: #56a9b7;
+    }
+
+
+    .section-title h2 {
+      margin-top: 12px;
+
+      font-size: 27px;
+
+      font-weight: 300;
+
+      letter-spacing: 0.15em;
+    }
+
+
+    .stay-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .stay-item {
+      border: 1px solid #e3eeee;
+
+      padding: 35px 22px;
+
+      text-align: center;
+
+      background: white;
+    }
+
+
+    .stay-number {
+      font-size: 11px;
+
+      letter-spacing: 0.2em;
+
+      color: #56a9b7;
+
+      margin-bottom: 12px;
+    }
+
+
+    .stay-item h3 {
+      font-size: 16px;
+
+      font-weight: 400;
+
+      margin-bottom: 12px;
+    }
+
+
+    .stay-item p {
+      font-size: 12px;
+
+      color: #777;
+
+      line-height: 1.9;
+    }
+
+
+    /* =========================
+       ACCESS
+    ========================= */
+
+    .access {
+      background: #f5fbfb;
+
+      padding: 90px 30px;
+    }
+
+
+    .access-inner {
+      max-width: 950px;
+
+      margin: 0 auto;
+    }
+
+
+    .access-title {
+      text-align: center;
+
+      margin-bottom: 55px;
+    }
+
+
+    .access-title .en {
+      font-size: 12px;
+
+      letter-spacing: 0.35em;
+
+      color: #56a9b7;
+
+      margin-bottom: 12px;
+    }
+
+
+    .access-title h2 {
+      font-size: 30px;
+
+      font-weight: 300;
+
+      letter-spacing: 0.12em;
+    }
+
+
+    .access-title p {
+      margin-top: 18px;
+
+      font-size: 13px;
+
+      color: #777;
+
+      line-height: 2;
+    }
+
+
+    /* アクセスカード */
+
+    .access-list {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 15px;
+    }
+
+
+    .access-item {
+      background: rgba(255,255,255,0.9);
+
+      border: 1px solid #e1eeee;
+
+      padding: 22px 25px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 18px;
+
+      transition: 0.3s;
+    }
+
+
+    .access-item:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+    }
+
+
+    .access-icon {
+      font-size: 25px;
+
+      width: 40px;
+
+      text-align: center;
+    }
+
+
+    .access-info {
+      flex: 1;
+    }
+
+
+    .access-place {
+      font-size: 16px;
+
+      letter-spacing: 0.08em;
+
+      margin-bottom: 3px;
+    }
+
+
+    .access-time {
+      font-size: 13px;
+
+      color: #56a9b7;
+
+      letter-spacing: 0.04em;
+
+      margin-bottom: 3px;
+    }
+
+
+    .access-desc {
+      font-size: 11px;
+
+      color: #777;
+
+      line-height: 1.7;
+    }
+
+
+    /* 最後の説明 */
+
+    .access-message {
+      text-align: center;
+
+      margin-top: 45px;
+
+      font-size: 13px;
+
+      line-height: 2.2;
+
+      color: #666;
+    }
+
+
+    /* =========================
+       TOPへ戻る
+    ========================= */
+
+    footer {
+      padding: 50px 20px;
+
+      text-align: center;
+
+      background: #fff;
+    }
+
+
+    .back {
+      display: block;
+
+      width: fit-content;
+
+      margin: 0 auto;
+
+      color: #333;
+
+      text-decoration: none;
+
+      padding: 12px 22px;
+
+      border:
+        1px solid rgba(51,51,51,0.6);
+
+      border-radius: 30px;
+
+      background:
+        rgba(255,255,255,0.15);
+
+      letter-spacing: 2px;
+
+      backdrop-filter: blur(5px);
+
+      transition: 0.3s;
+    }
+
+
+    .back:hover {
+      background:
+        rgba(51,51,51,0.15);
+    }
+
+
+    /* =========================
+       スマホ
+    ========================= */
+
+    @media (max-width: 768px) {
+
+     .hero {
+    width: 92%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+    margin: 30px auto 0;
+
+    background-size: cover;
+    background-position: center;
+}
+
+      .hero-content {
+        left: 25px;
+
+        bottom: 30px;
+      }
+
+
+      .hero-en {
+        font-size: 40px;
+      }
+
+
+    .intro {
+    display: block;
+    padding: 60px 25px;
+}
+
+.intro-title {
+    text-align: center;
+}
+
+.intro h2 {
+    text-align: center;
+}
+
+.intro p {
+    text-align: left;
+    font-size: 12px;
+    line-height: 2.1;
+ }
+
+.intro-image {
+    display: none;
+}
+
+      .concept {
+        padding: 60px 25px;
+      }
+
+
+      .concept h2 {
+        font-size: 27px;
+      }
+
+.concept p {
+    font-size: 12px;
+    line-height: 2.1;
+    text-align: left !important;
+    max-width: 100%;
+    margin: 0 auto;
+}
+      .stay {
+        padding: 75px 25px;
+      }
+
+
+      .stay-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .access {
+        padding: 65px 20px;
+      }
+
+
+      .access-list {
+        grid-template-columns: 1fr;
+      }
+
+.access-title h2 {
+    font-size: 23px;
+    line-height: 1.6;
+    letter-spacing: 0.08em;
+}
+
+      .access-title p {
+    font-size: 12px;
+    line-height: 2;
+    text-align: left;
+    max-width: 320px;
+    margin: 15px auto 0;
+}
+
+
+      .access-item {
+        padding: 20px;
+      }
+
+
+      .location {
+        padding: 65px 25px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-en">
+
+        STAY LIKE<br>
+        A RESORT
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section class="intro">
+
+    <div>
+
+      <div class="intro-title">
+        ABOUT OUR ROOM
+      </div>
+
+
+      <h2>
+        大阪に泊まる。<br>
+        海辺のリゾートのように。
+      </h2>
+
+
+      <p>
+
+        ビーチリゾートをイメージした
+        デザイナーズルーム。<br>
+
+        ターコイズとホワイトを基調に、
+        プロのインテリアデザイナーが
+        コーディネートした爽やかな空間です。
+
+        <br><br>
+
+        お部屋に入った瞬間から、
+        まるで海辺のリゾートホテルに
+        来たような開放感を感じていただけます。
+
+      </p>
+
+    </div>
+
+
+    <img
+      src="images/concept.jpg"
+      alt="お部屋"
+      class="intro-image"
+    >
+
+  </section>
+
+
+
+  <!-- =========================
+       CONCEPT
+  ========================= -->
+
+  <section class="concept">
+
+    <div class="concept-en">
+      OUR CONCEPT
+    </div>
+
+
+    <h2>
+      暮らすように泊まる。
+    </h2>
+
+
+    <p>
+
+      大阪観光を思いきり楽しんだあとは、
+      リゾートのような空間で、
+      ゆったりとした時間を。
+
+      <br><br>
+
+      高層階ならではの開放感と、
+      窓から見える大阪の景色。<br>
+
+      夕陽に染まる街並みを眺めながら、
+      旅の疲れをゆっくりと癒してください。
+
+      <br><br>
+
+      ホテルとは少し違う、
+      「暮らすように泊まる」
+      大阪旅をお楽しみください。
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       PERFECT FOR
+  ========================= -->
+
+  <section class="stay">
+
+    <div class="section-title">
+
+      <div class="en">
+        PERFECT FOR
+      </div>
+
+
+      <h2>
+        グループ＆ファミリーに
+      </h2>
+
+    </div>
+
+
+    <div class="stay-grid">
+
+
+      <div class="stay-item">
+
+        <div class="stay-number">
+          01
+        </div>
+
+
+        <h3>
+          FAMILY
+        </h3>
+
+
+        <p>
+
+          ご家族での大阪旅行に。<br>
+          みんなでゆったり過ごせる
+          広々とした空間。
+
+        </p>
+
+      </div>
+
+
+
+      <div class="stay-item">
+
+        <div class="stay-number">
+          02
+        </div>
+
+
+        <h3>
+          GIRLS TRIP
+        </h3>
+
+
+        <p>
+
+          女子旅やグループ旅行にも。<br>
+          お洒落なリビングで
+          旅の思い出をシェア。
+
+        </p>
+
+      </div>
+
+
+
+      <div class="stay-item">
+
+        <div class="stay-number">
+          03
+        </div>
+
+
+        <h3>
+          LONG STAY
+        </h3>
+
+
+        <p>
+
+          最大6名様まで宿泊可能。<br>
+          2泊3日からの滞在にも
+          おすすめです。
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       ACCESS
+  ========================= -->
+
+  <section class="access">
+
+    <div class="access-inner">
+
+
+      <div class="access-title">
+
+        <div class="en">
+          ACCESS TO OSAKA & KANSAI
+        </div>
+
+
+        <h2>
+          人気観光スポットへのアクセス
+        </h2>
+
+
+        <p>
+          SORAは大阪観光はもちろん、<br>
+          京都・奈良・神戸への関西旅行の拠点としても便利な立地です。
+        </p>
+
+      </div>
+
+
+
+      <div class="access-list">
+
+
+        <!-- なんば -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            📍
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              なんば・道頓堀
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約3分
+            </div>
+
+            <div class="access-desc">
+              大阪グルメやショッピングを楽しむならここ。
+              道頓堀・黒門市場・なんばエリアへ気軽にアクセス。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 心斎橋 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🛍
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              心斎橋
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約8分
+            </div>
+
+            <div class="access-desc">
+              心斎橋筋商店街やブランドショップ巡りにおすすめ。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 梅田 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🌆
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              梅田
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約15分
+            </div>
+
+            <div class="access-desc">
+              大阪駅・グランフロント大阪・梅田スカイビルなど、
+              大阪を代表する人気エリア。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 通天閣 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🗼
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              通天閣・新世界
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約7分
+            </div>
+
+            <div class="access-desc">
+              大阪らしい街並みや串カツなどの食べ歩きが楽しめます。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 天王寺 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🐘
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              天王寺・天王寺動物園
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約10分
+            </div>
+
+            <div class="access-desc">
+              天王寺動物園、あべのハルカス、てんしばなど
+              人気スポットが集まっています。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- teamLab -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🌿
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              teamLab Botanical Garden Osaka
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約20分
+            </div>
+
+            <div class="access-desc">
+              長居公園にある、幻想的なナイトアートが楽しめる人気スポット。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 大阪城 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🏯
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              大阪城
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約25分
+            </div>
+
+            <div class="access-desc">
+              大阪を代表する歴史スポット。
+              春の桜や季節の景色も人気です。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- USJ -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🎡
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              ユニバーサル・スタジオ・ジャパン
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約25〜30分
+            </div>
+
+            <div class="access-desc">
+              ファミリーや友人同士の旅行に大人気のテーマパーク。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 関空 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            ✈
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              関西国際空港（KIX）
+            </div>
+
+            <div class="access-time">
+              🚆 電車で約45〜60分
+            </div>
+
+            <div class="access-desc">
+              南海電車を利用するとスムーズにアクセスできます。
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 新大阪 -->
+
+        <div class="access-item">
+
+          <div class="access-icon">
+            🚅
+          </div>
+
+          <div class="access-info">
+
+            <div class="access-place">
+              新大阪駅
+            </div>
+
+            <div class="access-time">
+              🚇 電車で約25分
+            </div>
+
+            <div class="access-desc">
+              新幹線をご利用のお客様にも便利です。
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="access-message">
+
+        移動時間を短縮できるからこそ、<br>
+        限られた旅行時間をもっと自由に。<br><br>
+
+        大阪を楽しむ旅の拠点に、SORAを。
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       TOPへ戻る
+  ========================= -->
+
+  <footer>
+
+    <a
+      href="index.html"
+      class="back"
+    >
+
+      ← TOPへ戻る
+
+    </a>
+
+  </footer>
+
+
+</body>
+</html>

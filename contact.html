@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SORA｜お問い合わせ</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family:
+                "Yu Gothic",
+                "Hiragino Kaku Gothic ProN",
+                sans-serif;
+
+            color: #333;
+
+            background: #fff;
+
+            line-height: 1.9;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            width: 86%;
+
+            height: 55vh;
+
+            min-height: 450px;
+
+            margin: 50px auto 0;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(0,0,0,0.05),
+                    rgba(0,0,0,0.05)
+                ),
+
+                url("images/contact.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            position: relative;
+        }
+
+
+        /* 画像下側の文字 */
+
+        .hero-content {
+
+            position: absolute;
+
+            left: 45px;
+
+            bottom: 40px;
+
+            color: white;
+
+            text-shadow:
+                0 2px 12px
+                rgba(0,0,0,0.35);
+        }
+
+
+        .hero-en {
+
+            font-size:
+                clamp(40px, 6vw, 75px);
+
+            letter-spacing: 0.12em;
+
+            font-weight: 300;
+
+            line-height: 1.05;
+        }
+
+
+        .hero-ja {
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            letter-spacing: 0.25em;
+        }
+
+
+        /* =========================
+           INTRO
+        ========================= */
+
+        .intro {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            padding: 100px 30px 70px;
+
+            text-align: center;
+        }
+
+
+        .intro-title {
+
+            font-size: 12px;
+
+            letter-spacing: 0.3em;
+
+            color: #56a9b7;
+
+            margin-bottom: 20px;
+        }
+
+
+        .intro h2 {
+
+            font-size:
+                clamp(27px, 3.5vw, 42px);
+
+            font-weight: 300;
+
+            line-height: 1.5;
+
+            letter-spacing: 0.08em;
+
+            margin-bottom: 25px;
+        }
+
+
+        .intro p {
+
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            font-size: 14px;
+
+            line-height: 2.2;
+
+            color: #666;
+        }
+
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        .contact {
+
+            max-width: 700px;
+
+            margin: 0 auto;
+
+            padding: 0 30px 110px;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-title .en {
+
+            font-size: 12px;
+
+            letter-spacing: 0.35em;
+
+            color: #56a9b7;
+        }
+
+
+        .section-title h2 {
+
+            margin-top: 12px;
+
+            font-size: 27px;
+
+            font-weight: 300;
+
+            letter-spacing: 0.15em;
+        }
+
+
+        /* =========================
+           フォーム
+        ========================= */
+
+        .form-group {
+
+            margin-bottom: 25px;
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            font-size: 13px;
+
+            letter-spacing: 0.1em;
+
+            margin-bottom: 8px;
+
+            color: #555;
+        }
+
+
+        .required {
+
+            font-size: 10px;
+
+            color: #56a9b7;
+
+            margin-left: 6px;
+
+            letter-spacing: 0;
+        }
+
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border:
+                1px solid #dceaea;
+
+            border-radius: 3px;
+
+            background: #f9fcfc;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            color: #333;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+
+            border-color: #56a9b7;
+
+            background: white;
+        }
+
+
+        .form-group textarea {
+
+            height: 180px;
+
+            resize: vertical;
+        }
+
+
+        /* =========================
+           送信ボタン
+        ========================= */
+
+        .submit-area {
+
+            text-align: center;
+
+            margin-top: 40px;
+        }
+
+
+        .submit-button {
+
+            padding: 14px 45px;
+
+            border:
+                1px solid #56a9b7;
+
+            border-radius: 30px;
+
+            background: #56a9b7;
+
+            color: white;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            letter-spacing: 0.2em;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .submit-button:hover {
+
+            background: #438d99;
+        }
+
+
+        /* =========================
+           注意書き
+        ========================= */
+
+        .note {
+
+            background: #f5fbfb;
+
+            padding: 45px 30px;
+
+            text-align: center;
+
+            margin-bottom: 80px;
+        }
+
+
+        .note-en {
+
+            font-size: 11px;
+
+            letter-spacing: 0.35em;
+
+            color: #56a9b7;
+
+            margin-bottom: 15px;
+        }
+
+
+        .note p {
+
+            font-size: 13px;
+
+            line-height: 2;
+
+            color: #666;
+        }
+
+
+        /* =========================
+           TOPへ戻る
+        ========================= */
+
+        footer {
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            background: white;
+        }
+
+
+        .back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 0 auto;
+
+            color: #333;
+
+            text-decoration: none;
+
+            padding: 12px 22px;
+
+            border:
+                1px solid
+                rgba(51,51,51,0.6);
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,0.15);
+
+            letter-spacing: 2px;
+
+            backdrop-filter: blur(5px);
+
+            transition: 0.3s;
+        }
+
+
+        .back:hover {
+
+            background:
+                rgba(51,51,51,0.15);
+        }
+
+
+        /* =========================
+           スマホ
+        ========================= */
+
+        @media (max-width: 768px) {
+
+
+           .hero {
+    width: 92%;
+    height: 260px;
+    min-height: 0;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin-top: 30px;
+  }
+
+
+            .hero-content {
+
+                left: 25px;
+
+                bottom: 30px;
+            }
+
+
+            .hero-en {
+
+                font-size: 40px;
+            }
+
+
+            .intro {
+    padding: 70px 25px 55px;
+}
+
+.intro h2 {
+    font-size: 24px;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+
+            .contact {
+
+                padding:
+                    0 25px 75px;
+            }
+
+
+            .note {
+
+                margin-bottom: 60px;
+
+                padding:
+                    40px 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-en">
+                CONTACT
+            </div>
+
+            <div class="hero-ja">
+                お問い合わせ
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="intro">
+
+        <div class="intro-title">
+            CONTACT US
+        </div>
+
+
+        <h2>
+            お気軽にお問い合わせください。
+        </h2>
+
+
+        <p>
+
+            ご宿泊についてのご質問や、
+            ご不明な点がございましたら
+            下記フォームよりお問い合わせください。
+
+            <br><br>
+
+            内容を確認のうえ、
+            順次ご返信いたします。
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT FORM
+    ========================= -->
+
+    <section class="contact">
+
+
+        <div class="section-title">
+
+            <div class="en">
+                CONTACT FORM
+            </div>
+
+            <h2>
+                お問い合わせフォーム
+            </h2>
+
+        </div>
+
+
+
+        <form id="contactForm">
+
+
+            <!-- お名前 -->
+
+            <div class="form-group">
+
+                <label>
+                    お名前
+                    <span class="required">
+                        必須
+                    </span>
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="お名前をご入力ください"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- メールアドレス -->
+
+            <div class="form-group">
+
+                <label>
+                    メールアドレス
+                    <span class="required">
+                        必須
+                    </span>
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- 電話番号 -->
+
+            <div class="form-group">
+
+                <label>
+                    電話番号
+                </label>
+
+                <input
+                    type="tel"
+                    id="tel"
+                    name="tel"
+                    placeholder="090-0000-0000"
+                >
+
+            </div>
+
+
+
+            <!-- お問い合わせ内容 -->
+
+            <div class="form-group">
+
+                <label>
+                    お問い合わせ内容
+                    <span class="required">
+                        必須
+                    </span>
+                </label>
+
+                <select id="category" name="category" required>
+
+                    <option value="">
+                        お問い合わせ内容を選択
+                    </option>
+
+                    <option value="reservation">
+                        ご予約について
+                    </option>
+
+                    <option value="room">
+                        お部屋について
+                    </option>
+
+                    <option value="access">
+                        アクセスについて
+                    </option>
+
+                    <option value="other">
+                        その他
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- メッセージ -->
+
+            <div class="form-group">
+
+                <label>
+                    お問い合わせ内容
+                    <span class="required">
+                        必須
+                    </span>
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="お問い合わせ内容をご入力ください"
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- 送信 -->
+
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+
+                    送信する
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </section>
+
+
+    <script>
+
+        /* =========================
+           送信するとメールソフトが開き、
+           内容が入った状態で送信できる
+        ========================= */
+
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const tel = document.getElementById("tel").value;
+
+            const categorySelect = document.getElementById("category");
+            const category = categorySelect.options[categorySelect.selectedIndex].text;
+
+            const message = document.getElementById("message").value;
+
+            const subject = "【SORA】お問い合わせ：" + name + "様";
+
+            const body =
+                "お名前：" + name + "\n" +
+                "メールアドレス：" + email + "\n" +
+                "電話番号：" + tel + "\n" +
+                "お問い合わせ内容：" + category + "\n\n" +
+                "メッセージ：\n" + message;
+
+            window.location.href =
+                "mailto:a.yoneda@yamafuku.jp" +
+                "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+        });
+
+    </script>
+
+
+
+    <!-- =========================
+         NOTE
+    ========================= -->
+
+    <section class="note">
+
+        <div class="note-en">
+            RESERVATION
+        </div>
+
+        <p>
+
+            ご予約をご希望の場合は、
+            「ご予約はこちら」から
+            ご予約ページをご確認ください。
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         TOPへ戻る
+    ========================= -->
+
+    <footer>
+
+        <a
+            href="index.html"
+            class="back"
+        >
+
+            ← TOPへ戻る
+
+        </a>
+
+    </footer>
+
+
+</body>
+
+</html>

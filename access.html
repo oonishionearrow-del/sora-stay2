@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>アクセス | SORA</title>
+
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+
+      font-family:
+        "Yu Gothic",
+        "Hiragino Kaku Gothic ProN",
+        sans-serif;
+
+      color: #333;
+
+      background: #fff;
+
+      line-height: 1.9;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+
+      width: 86%;
+
+      height: 65vh;
+
+      min-height: 500px;
+
+      margin: 50px auto 0;
+
+      background-image:
+        linear-gradient(
+          rgba(0,0,0,0.05),
+          rgba(0,0,0,0.05)
+        ),
+        url("images/access.jpg");
+
+      background-size: cover;
+
+      /* 少し下側を見せる */
+      background-position: center 70%;
+
+      position: relative;
+    }
+
+
+    /* 画像の下側に文字 */
+
+    .hero-content {
+
+      position: absolute;
+
+      left: 45px;
+
+      bottom: 40px;
+
+      color: white;
+
+      text-shadow:
+        0 2px 12px rgba(0,0,0,0.35);
+    }
+
+
+    .hero-en {
+
+      font-size:
+        clamp(40px, 6vw, 75px);
+
+      letter-spacing: 0.12em;
+
+      font-weight: 300;
+
+      line-height: 1.05;
+    }
+
+
+    .hero-ja {
+
+      margin-top: 15px;
+
+      font-size: 14px;
+
+      letter-spacing: 0.25em;
+    }
+
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+
+      max-width: 950px;
+
+      margin: 0 auto;
+
+      padding: 110px 30px;
+
+      text-align: center;
+    }
+
+
+    .intro-title {
+
+      font-size: 12px;
+
+      letter-spacing: 0.3em;
+
+      color: #56a9b7;
+
+      margin-bottom: 20px;
+    }
+
+
+    .intro h2 {
+
+      font-size:
+        clamp(27px, 3.5vw, 45px);
+
+      font-weight: 300;
+
+      line-height: 1.5;
+
+      letter-spacing: 0.08em;
+
+      margin-bottom: 30px;
+    }
+
+
+    .intro p {
+
+      max-width: 650px;
+
+      margin: 0 auto;
+
+      font-size: 14px;
+
+      line-height: 2.2;
+
+      color: #666;
+    }
+
+
+    /* =========================
+       ACCESS INFO
+    ========================= */
+
+    .access {
+
+      max-width: 950px;
+
+      margin: 0 auto;
+
+      padding: 0 30px 110px;
+    }
+
+
+    .section-title {
+
+      text-align: center;
+
+      margin-bottom: 50px;
+    }
+
+
+    .section-title .en {
+
+      font-size: 12px;
+
+      letter-spacing: 0.35em;
+
+      color: #56a9b7;
+    }
+
+
+    .section-title h2 {
+
+      margin-top: 12px;
+
+      font-size: 27px;
+
+      font-weight: 300;
+
+      letter-spacing: 0.15em;
+    }
+
+
+    /* =========================
+       ACCESS CARD
+    ========================= */
+
+    .access-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 20px;
+    }
+
+
+    .access-item {
+
+      border:
+        1px solid #e3eeee;
+
+      padding: 35px 25px;
+
+      text-align: center;
+
+      background: white;
+    }
+
+
+    .access-number {
+
+      font-size: 11px;
+
+      letter-spacing: 0.2em;
+
+      color: #56a9b7;
+
+      margin-bottom: 12px;
+    }
+
+
+    .access-item h3 {
+
+      font-size: 18px;
+
+      font-weight: 400;
+
+      letter-spacing: 0.1em;
+
+      margin-bottom: 18px;
+    }
+
+
+    .access-item p {
+
+      font-size: 13px;
+
+      line-height: 2;
+
+      color: #666;
+    }
+
+
+    /* =========================
+       GOOGLE MAP LINK
+    ========================= */
+
+    .map-link {
+
+      text-align: center;
+
+      margin-top: 35px;
+    }
+
+
+    .map-link a {
+
+      display: inline-block;
+
+      padding: 12px 28px;
+
+      color: #333;
+
+      text-decoration: none;
+
+      border:
+        1px solid #56a9b7;
+
+      border-radius: 30px;
+
+      background: white;
+
+      letter-spacing: 0.1em;
+
+      font-size: 13px;
+
+      transition: 0.3s;
+    }
+
+
+    .map-link a:hover {
+
+      background: #56a9b7;
+
+      color: white;
+    }
+
+
+    /* =========================
+       LOCATION
+    ========================= */
+
+    .location {
+
+      background: #f5fbfb;
+
+      padding: 80px 30px;
+
+      text-align: center;
+
+      margin-bottom: 110px;
+    }
+
+
+    .location-en {
+
+      font-size: 11px;
+
+      letter-spacing: 0.35em;
+
+      color: #56a9b7;
+
+      margin-bottom: 15px;
+    }
+
+
+    .location h2 {
+
+      font-size: 27px;
+
+      font-weight: 300;
+
+      letter-spacing: 0.12em;
+
+      margin-bottom: 25px;
+    }
+
+
+    .location p {
+
+      font-size: 14px;
+
+      line-height: 2.2;
+
+      color: #666;
+    }
+
+
+    .landmark {
+
+      margin-top: 25px;
+    }
+
+
+    /* =========================
+       TOPへ戻る
+    ========================= */
+
+    footer {
+
+      padding: 50px 20px;
+
+      text-align: center;
+
+      background: #fff;
+    }
+
+
+    .back {
+
+      display: block;
+
+      width: fit-content;
+
+      margin: 0 auto;
+
+      color: #333;
+
+      text-decoration: none;
+
+      padding: 12px 22px;
+
+      border:
+        1px solid rgba(51, 51, 51, 0.6);
+
+      border-radius: 30px;
+
+      background:
+        rgba(255, 255, 255, 0.15);
+
+      letter-spacing: 2px;
+
+      backdrop-filter: blur(5px);
+
+      transition: 0.3s;
+    }
+
+
+    .back:hover {
+
+      background:
+        rgba(51, 51, 51, 0.15);
+    }
+
+
+    /* =========================
+       スマホ
+    ========================= */
+
+    @media (max-width: 768px) {
+
+
+      .hero {
+  width: 92%;
+  height: 260px;
+  min-height: 0;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin-top: 30px;
+}
+
+      .hero-content {
+
+        left: 25px;
+
+        bottom: 30px;
+      }
+
+
+      .hero-en {
+
+        font-size: 40px;
+      }
+
+
+      .intro {
+
+        padding: 75px 25px;
+      }
+
+.intro p {
+  text-align: left;
+}
+
+
+      .access {
+
+        padding:
+          0 25px 75px;
+      }
+
+
+      .access-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .location {
+
+        margin-bottom: 75px;
+
+        padding: 60px 25px;
+      }
+
+
+      .map-link a {
+
+        font-size: 12px;
+
+        padding: 11px 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-en">
+        ACCESS
+      </div>
+
+      <div class="hero-ja">
+        アクセス
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       INTRO
+  ========================= -->
+
+  <section class="intro">
+
+    <div class="intro-title">
+      ACCESS
+    </div>
+
+
+    <h2>
+      大阪観光の拠点に。
+    </h2>
+
+
+    <p>
+
+      大阪の主要観光スポットへのアクセスにも便利な立地。<br>
+
+      観光を楽しんだあとは、
+      ゆっくりとお部屋でお過ごしいただけます。
+
+      <br><br>
+
+      電車での移動にも便利なので、
+      大阪観光はもちろん、
+      関西旅行の拠点としてもご利用いただけます。
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       ACCESS INFO
+  ========================= -->
+
+  <section class="access">
+
+
+    <div class="section-title">
+
+      <div class="en">
+        TRANSPORTATION
+      </div>
+
+      <h2>
+        交通アクセス
+      </h2>
+
+    </div>
+
+
+
+    <div class="access-grid">
+
+
+      <!-- Osaka Metro -->
+
+      <div class="access-item">
+
+        <div class="access-number">
+          01
+        </div>
+
+        <h3>
+          Osaka Metro
+        </h3>
+
+        <p>
+
+          四つ橋線<br>
+
+          「花園町駅」<br>
+
+          徒歩約3分
+
+        </p>
+
+      </div>
+
+
+
+      <!-- 南海高野線 -->
+
+      <div class="access-item">
+
+        <div class="access-number">
+          02
+        </div>
+
+        <h3>
+          南海高野線
+        </h3>
+
+        <p>
+
+          「萩ノ茶屋駅」<br>
+
+          徒歩約9分
+
+          <br><br>
+
+          「天下茶屋駅」<br>
+
+          徒歩約12分
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Google MAP -->
+
+    <div class="map-link">
+
+      <a
+        href="https://maps.app.goo.gl/hooGgFMVFfqxuNar9"
+        target="_blank"
+      >
+        Google MAPで場所を確認
+      </a>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =========================
+       LOCATION
+  ========================= -->
+
+  <section class="location">
+
+    <div class="location-en">
+      LOCATION
+    </div>
+
+
+    <h2>
+      所在地
+    </h2>
+
+
+    <p>
+
+      大阪市西成区梅南1-3-2<br>
+
+      リアライズ花園町駅前
+
+    </p>
+
+
+    <p class="landmark">
+
+      建物の前に<br>
+
+      「COFFEE＆ROASTER SUMMIT OF THE MOUN10」<br>
+
+      がございます。
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       TOPへ戻る
+  ========================= -->
+
+  <footer>
+
+    <a
+      href="index.html"
+      class="back"
+    >
+
+      ← TOPへ戻る
+
+    </a>
+
+  </footer>
+
+
+</body>
+
+</html>

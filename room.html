@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SORA｜ROOM</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           ページ全体
+        ========================= */
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            background-image:
+                url("images/room.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            font-family:
+                "Yu Mincho",
+                "Hiragino Mincho ProN",
+                serif;
+
+            color: white;
+
+            padding-bottom: 50px;
+        }
+
+
+        /* =========================
+           背景を薄くする
+        ========================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                rgba(255, 255, 255, 0.60);
+
+            z-index: -1;
+        }
+
+
+        /* =========================
+           ロゴ
+        ========================= */
+
+        .logo {
+
+            position: absolute;
+
+            top: 30px;
+            left: 30px;
+
+            width: 250px;
+
+            opacity: 0.5;
+        }
+
+
+        /* =========================
+           スライド
+        ========================= */
+
+        .slider {
+
+            position: relative;
+
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: 150px auto 0;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           写真
+        ========================= */
+
+        .slider img {
+
+            width: 100%;
+
+            height: 600px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.4);
+        }
+
+
+        /* =========================
+           動画
+        ========================= */
+
+        .slider video {
+
+            width: 100%;
+
+            height: 600px;
+
+            object-fit: contain;
+
+            background:
+                rgba(0, 0, 0, 0.3);
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.4);
+        }
+
+
+        /* =========================
+           左右の矢印
+        ========================= */
+
+        .arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(0, 0, 0, 0.4);
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            z-index: 5;
+        }
+
+
+        .arrow:hover {
+
+            background:
+                rgba(0, 0, 0, 0.7);
+        }
+
+
+        /* =========================
+           左の矢印
+        ========================= */
+
+        .prev {
+
+            left: -60px;
+        }
+
+
+        /* =========================
+           右の矢印
+        ========================= */
+
+        .next {
+
+            right: -60px;
+        }
+
+
+        /* =========================
+           ドット
+        ========================= */
+
+        .dots {
+
+            margin-top: 18px;
+        }
+
+
+        .dot {
+
+            display: inline-block;
+
+            width: 9px;
+
+            height: 9px;
+
+            margin: 0 5px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.5);
+
+            cursor: pointer;
+        }
+
+
+        .dot.active {
+
+            background: white;
+        }
+
+
+        /* =========================
+           TOPへ戻る
+        ========================= */
+
+        .back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 35px auto 0;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 22px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.8);
+
+            border-radius: 30px;
+
+            /* ボタンを濃くする */
+
+            background:
+                rgba(0, 0, 0, 0.55);
+
+            letter-spacing: 2px;
+
+            backdrop-filter: blur(5px);
+
+            transition: 0.3s;
+        }
+
+
+        .back:hover {
+
+            background:
+                rgba(0, 0, 0, 0.75);
+        }
+
+
+        /* =========================
+           スマホ
+        ========================= */
+
+        @media (max-width: 800px) {
+
+
+            .logo {
+
+                width: 180px;
+
+                top: 20px;
+
+                left: 20px;
+            }
+
+
+            .slider {
+
+                width: 92%;
+
+                max-width: none;
+
+                margin-top: 130px;
+            }
+
+
+            .slider img,
+            .slider video {
+
+                height: 320px;
+            }
+
+
+            .prev {
+
+                left: -10px;
+            }
+
+
+            .next {
+
+                right: -10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ロゴ
+    ========================= -->
+
+    <img
+        src="images/logo.png"
+        alt="SORAのロゴ"
+        class="logo"
+    >
+
+
+    <!-- =========================
+         スライド
+    ========================= -->
+
+    <div class="slider">
+
+
+        <!-- 写真・動画を表示する場所 -->
+
+        <div id="slideContent"></div>
+
+
+        <!-- 左矢印 -->
+
+        <button
+            class="arrow prev"
+            onclick="changeSlide(-1)"
+        >
+
+            ‹
+
+        </button>
+
+
+        <!-- 右矢印 -->
+
+        <button
+            class="arrow next"
+            onclick="changeSlide(1)"
+        >
+
+            ›
+
+        </button>
+
+
+        <!-- ドット -->
+
+        <div class="dots">
+
+            <span
+                class="dot active"
+                onclick="showSlide(0)"
+            ></span>
+
+            <span
+                class="dot"
+                onclick="showSlide(1)"
+            ></span>
+
+            <span
+                class="dot"
+                onclick="showSlide(2)"
+            ></span>
+
+            <span
+                class="dot"
+                onclick="showSlide(3)"
+            ></span>
+
+            <span
+                class="dot"
+                onclick="showSlide(4)"
+            ></span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TOPへ戻る
+    ========================= -->
+
+    <a
+        href="index.html"
+        class="back"
+    >
+
+        ← TOPへ戻る
+
+    </a>
+
+
+    <script>
+
+
+        /* =========================
+           写真4枚＋動画1本
+        ========================= */
+
+        const slides = [
+
+            {
+                type: "image",
+                src: "images/room1.jpg"
+            },
+
+            {
+                type: "image",
+                src: "images/room2.jpg"
+            },
+
+            {
+                type: "image",
+                src: "images/room3.jpg"
+            },
+
+            {
+                type: "image",
+                src: "images/room4.jpg"
+            },
+
+            {
+                type: "video",
+                src: "images/room.mp4"
+            }
+
+        ];
+
+
+        /* =========================
+           現在のスライド
+        ========================= */
+
+        let currentSlide = 0;
+
+
+        /* =========================
+           スライドを表示
+        ========================= */
+
+        function showSlide(number) {
+
+            currentSlide = number;
+
+
+            const content =
+                document.getElementById(
+                    "slideContent"
+                );
+
+
+            /* 中身を空にする */
+
+            content.innerHTML = "";
+
+
+            /* =========================
+               写真
+            ========================= */
+
+            if (
+                slides[currentSlide].type
+                === "image"
+            ) {
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    slides[currentSlide].src;
+
+
+                image.alt =
+                    "SORAのお部屋";
+
+
+                content.appendChild(image);
+
+            }
+
+
+            /* =========================
+               動画
+            ========================= */
+
+            if (
+                slides[currentSlide].type
+                === "video"
+            ) {
+
+                const video =
+                    document.createElement(
+                        "video"
+                    );
+
+
+                video.src =
+                    slides[currentSlide].src;
+
+
+                /* 自動再生 */
+
+                video.autoplay = true;
+
+
+                /* ミュート */
+
+                video.muted = true;
+
+
+                /* スマホ対応 */
+
+                video.playsInline = true;
+
+
+                /* 再生バー */
+
+                video.controls = true;
+
+
+                content.appendChild(video);
+
+            }
+
+
+            /* =========================
+               ドット変更
+            ========================= */
+
+            const dots =
+                document.querySelectorAll(
+                    ".dot"
+                );
+
+
+            dots.forEach(
+                function(dot, index) {
+
+                    dot.classList.toggle(
+                        "active",
+                        index === currentSlide
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           左右の矢印
+        ========================= */
+
+        function changeSlide(direction) {
+
+            currentSlide += direction;
+
+
+            /* 最後 → 最初 */
+
+            if (
+                currentSlide >=
+                slides.length
+            ) {
+
+                currentSlide = 0;
+
+            }
+
+
+            /* 最初 → 最後 */
+
+            if (
+                currentSlide < 0
+            ) {
+
+                currentSlide =
+                    slides.length - 1;
+
+            }
+
+
+            showSlide(currentSlide);
+
+        }
+
+
+        /* =========================
+           最初の写真を表示
+        ========================= */
+
+        showSlide(0);
+
+
+    </script>
+
+
+</body>
+
+</html>
