@@ -14,19 +14,125 @@
       box-sizing: border-box;
     }
 
-
     /* =========================
        ページ全体
     ========================= */
 
     body {
       font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
-
       color: #333;
-
       background: #fff;
-
       line-height: 1.9;
+    }
+
+
+    /* =========================
+       共通メニュー
+    ========================= */
+
+    .top-menu {
+      position: fixed;
+
+      top: 30px;
+      right: 35px;
+
+      z-index: 100;
+    }
+
+
+    .menu-button {
+      width: 45px;
+      height: 45px;
+
+      border: none;
+
+      background: rgba(0, 40, 60, 0.75);
+
+      color: white;
+
+      font-size: 28px;
+
+      cursor: pointer;
+
+      border-radius: 50%;
+
+      backdrop-filter: blur(5px);
+    }
+
+
+    /* =========================
+       メニュー
+    ========================= */
+
+    .menu {
+      position: fixed;
+
+      top: 0;
+
+      right: -300px;
+
+      width: 300px;
+
+      height: 100vh;
+
+      background: rgba(0, 40, 60, 0.92);
+
+      padding: 100px 40px 40px;
+
+      transition: right 0.4s ease;
+
+      z-index: 110;
+    }
+
+
+    .menu.open {
+      right: 0;
+    }
+
+
+    .menu a {
+      display: block;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 18px;
+
+      letter-spacing: 4px;
+
+      padding: 18px 0;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.3);
+
+      transition: 0.3s;
+    }
+
+
+    .menu a:hover {
+      padding-left: 10px;
+
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+
+    /* =========================
+       閉じるボタン
+    ========================= */
+
+    .close {
+      position: absolute;
+
+      top: 30px;
+
+      right: 35px;
+
+      color: white;
+
+      font-size: 30px;
+
+      cursor: pointer;
     }
 
 
@@ -36,11 +142,8 @@
 
     .hero {
       width: 86%;
-
       height: 65vh;
-
       min-height: 500px;
-
       margin: 50px auto 0;
 
       background-image:
@@ -51,34 +154,24 @@
         url("images/concept1.jpg");
 
       background-size: cover;
-
       background-position: center;
-
       position: relative;
     }
 
-
     .hero-content {
       position: absolute;
-
       left: 45px;
-
       bottom: 40px;
-
       color: white;
 
       text-shadow:
         0 2px 12px rgba(0,0,0,0.35);
     }
 
-
     .hero-en {
       font-size: clamp(40px, 6vw, 75px);
-
       letter-spacing: 0.12em;
-
       font-weight: 300;
-
       line-height: 1.05;
     }
 
@@ -89,59 +182,39 @@
 
     .intro {
       max-width: 950px;
-
       margin: 0 auto;
-
       padding: 110px 30px;
 
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       gap: 70px;
-
       align-items: center;
     }
 
-
     .intro-title {
       font-size: 12px;
-
       letter-spacing: 0.3em;
-
       color: #56a9b7;
-
       margin-bottom: 20px;
     }
 
-
     .intro h2 {
       font-size: clamp(27px, 3.5vw, 45px);
-
       font-weight: 300;
-
       line-height: 1.5;
-
       letter-spacing: 0.08em;
-
       margin-bottom: 30px;
     }
 
-
     .intro p {
       font-size: 14px;
-
       line-height: 2.2;
-
       color: #666;
     }
 
-
     .intro-image {
       width: 100%;
-
       height: 480px;
-
       object-fit: cover;
     }
 
@@ -152,44 +225,29 @@
 
     .concept {
       background: #f5fbfb;
-
       padding: 75px 30px;
-
       text-align: center;
     }
 
-
     .concept-en {
       font-size: 12px;
-
       letter-spacing: 0.35em;
-
       color: #56a9b7;
-
       margin-bottom: 18px;
     }
 
-
     .concept h2 {
       font-size: clamp(23px, 3vw, 36px);
-
       font-weight: 300;
-
       letter-spacing: 0.12em;
-
       margin-bottom: 30px;
     }
 
-
     .concept p {
       max-width: 620px;
-
       margin: 0 auto;
-
       font-size: 14px;
-
       line-height: 2.3;
-
       color: #666;
     }
 
@@ -200,85 +258,57 @@
 
     .stay {
       max-width: 950px;
-
       margin: 0 auto;
-
       padding: 105px 30px;
     }
 
-
     .section-title {
       text-align: center;
-
       margin-bottom: 55px;
     }
 
-
     .section-title .en {
       font-size: 12px;
-
       letter-spacing: 0.35em;
-
       color: #56a9b7;
     }
-
 
     .section-title h2 {
       margin-top: 12px;
-
       font-size: 27px;
-
       font-weight: 300;
-
       letter-spacing: 0.15em;
     }
 
-
     .stay-grid {
       display: grid;
-
       grid-template-columns: repeat(3, 1fr);
-
       gap: 20px;
     }
 
-
     .stay-item {
       border: 1px solid #e3eeee;
-
       padding: 35px 22px;
-
       text-align: center;
-
       background: white;
     }
 
-
     .stay-number {
       font-size: 11px;
-
       letter-spacing: 0.2em;
-
       color: #56a9b7;
-
       margin-bottom: 12px;
     }
-
 
     .stay-item h3 {
       font-size: 16px;
-
       font-weight: 400;
-
       margin-bottom: 12px;
     }
 
-
     .stay-item p {
       font-size: 12px;
-
       color: #777;
-
       line-height: 1.9;
     }
 
@@ -289,146 +319,172 @@
 
     .access {
       background: #f5fbfb;
-
       padding: 90px 30px;
     }
 
-
     .access-inner {
       max-width: 950px;
-
       margin: 0 auto;
     }
 
-
     .access-title {
       text-align: center;
-
       margin-bottom: 55px;
     }
 
-
     .access-title .en {
       font-size: 12px;
-
       letter-spacing: 0.35em;
-
       color: #56a9b7;
-
       margin-bottom: 12px;
     }
 
-
     .access-title h2 {
       font-size: 30px;
-
       font-weight: 300;
-
       letter-spacing: 0.12em;
     }
 
-
     .access-title p {
       margin-top: 18px;
-
       font-size: 13px;
-
       color: #777;
-
       line-height: 2;
     }
 
 
-    /* アクセスカード */
+    /* =========================
+       アクセスカード
+    ========================= */
 
     .access-list {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 15px;
     }
 
-
     .access-item {
       background: rgba(255,255,255,0.9);
-
       border: 1px solid #e1eeee;
-
       padding: 22px 25px;
 
       display: flex;
-
-      align-items: center;
-
+      align-items: flex-start;
       gap: 18px;
 
       transition: 0.3s;
-    }
 
+      cursor: pointer;
+    }
 
     .access-item:hover {
       transform: translateY(-3px);
-
       box-shadow:
         0 8px 25px rgba(0,0,0,0.08);
     }
 
-
     .access-icon {
       font-size: 25px;
-
       width: 40px;
-
+      min-width: 40px;
       text-align: center;
     }
 
-
     .access-info {
       flex: 1;
+      min-width: 0;
     }
-
 
     .access-place {
       font-size: 16px;
-
       letter-spacing: 0.08em;
-
       margin-bottom: 3px;
     }
-
 
     .access-time {
       font-size: 13px;
-
       color: #56a9b7;
-
       letter-spacing: 0.04em;
-
       margin-bottom: 3px;
     }
 
-
     .access-desc {
       font-size: 11px;
-
       color: #777;
-
       line-height: 1.7;
     }
 
 
-    /* 最後の説明 */
+    /* =========================
+       乗換案内
+    ========================= */
+
+    .access-route {
+      display: none;
+      width: 100%;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #e1eeee;
+    }
+
+    .access-route.open {
+      display: block;
+    }
+
+    .access-route-title {
+      font-size: 13px;
+      color: #56a9b7;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .access-route-step {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.9;
+      padding: 3px 0;
+    }
+
+    .access-route-info {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #777;
+      line-height: 1.8;
+    }
+
+    .access-map {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 16px;
+
+      border: 1px solid #56a9b7;
+      border-radius: 20px;
+
+      color: #56a9b7;
+      text-decoration: none;
+
+      font-size: 11px;
+      letter-spacing: 0.04em;
+
+      transition: 0.3s;
+    }
+
+    .access-map:hover {
+      background: #56a9b7;
+      color: white;
+    }
+
+
+    /* =========================
+       最後の説明
+    ========================= */
 
     .access-message {
       text-align: center;
-
       margin-top: 45px;
 
       font-size: 13px;
-
       line-height: 2.2;
-
       color: #666;
     }
 
@@ -439,22 +495,16 @@
 
     footer {
       padding: 50px 20px;
-
       text-align: center;
-
       background: #fff;
     }
 
-
     .back {
       display: block;
-
       width: fit-content;
-
       margin: 0 auto;
 
       color: #333;
-
       text-decoration: none;
 
       padding: 12px 22px;
@@ -474,7 +524,6 @@
       transition: 0.3s;
     }
 
-
     .back:hover {
       background:
         rgba(51,51,51,0.15);
@@ -487,109 +536,121 @@
 
     @media (max-width: 768px) {
 
-     .hero {
-    width: 92%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    min-height: 0;
-    margin: 30px auto 0;
+      .top-menu {
+        top: 20px;
+        right: 20px;
+      }
 
-    background-size: cover;
-    background-position: center;
-}
+      .menu-button {
+        width: 42px;
+        height: 42px;
+        font-size: 25px;
+      }
+
+      .menu {
+        width: 220px;
+      }
+
+
+      .hero {
+        width: 92%;
+        aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: 0;
+        margin: 30px auto 0;
+
+        background-size: cover;
+        background-position: center;
+      }
 
       .hero-content {
         left: 25px;
-
         bottom: 30px;
       }
-
 
       .hero-en {
         font-size: 40px;
       }
 
+      .intro {
+        display: block;
+        padding: 60px 25px;
+      }
 
-    .intro {
-    display: block;
-    padding: 60px 25px;
-}
+      .intro-title {
+        text-align: center;
+      }
 
-.intro-title {
-    text-align: center;
-}
+      .intro h2 {
+        text-align: center;
+      }
 
-.intro h2 {
-    text-align: center;
-}
+      .intro p {
+        text-align: left;
+        font-size: 12px;
+        line-height: 2.1;
+      }
 
-.intro p {
-    text-align: left;
-    font-size: 12px;
-    line-height: 2.1;
- }
-
-.intro-image {
-    display: none;
-}
+      .intro-image {
+        display: none;
+      }
 
       .concept {
         padding: 60px 25px;
       }
 
-
       .concept h2 {
         font-size: 27px;
       }
 
-.concept p {
-    font-size: 12px;
-    line-height: 2.1;
-    text-align: left !important;
-    max-width: 100%;
-    margin: 0 auto;
-}
+      .concept p {
+        font-size: 12px;
+        line-height: 2.1;
+        text-align: left !important;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
       .stay {
         padding: 75px 25px;
       }
-
 
       .stay-grid {
         grid-template-columns: 1fr;
       }
 
-
       .access {
         padding: 65px 20px;
       }
-
 
       .access-list {
         grid-template-columns: 1fr;
       }
 
-.access-title h2 {
-    font-size: 23px;
-    line-height: 1.6;
-    letter-spacing: 0.08em;
-}
+      .access-title h2 {
+        font-size: 23px;
+        line-height: 1.6;
+        letter-spacing: 0.08em;
+      }
 
       .access-title p {
-    font-size: 12px;
-    line-height: 2;
-    text-align: left;
-    max-width: 320px;
-    margin: 15px auto 0;
-}
-
+        font-size: 12px;
+        line-height: 2;
+        text-align: left;
+        max-width: 320px;
+        margin: 15px auto 0;
+      }
 
       .access-item {
         padding: 20px;
       }
 
+      .access-place {
+        font-size: 15px;
+      }
 
-      .location {
-        padding: 65px 25px;
+      .access-route-step {
+        font-size: 11px;
       }
 
     }
@@ -598,8 +659,74 @@
 
 </head>
 
-
 <body>
+
+
+  <!-- =========================
+       三本線メニュー
+  ========================= -->
+
+  <div class="top-menu">
+
+    <button
+      class="menu-button"
+      onclick="openMenu()"
+    >
+      ☰
+    </button>
+
+  </div>
+
+
+  <!-- =========================
+       メニュー
+  ========================= -->
+
+  <div
+    class="menu"
+    id="menu"
+  >
+
+    <div
+      class="close"
+      onclick="closeMenu()"
+    >
+      ×
+    </div>
+
+
+    <a href="index.html">
+      TOP
+    </a>
+
+    <a href="concept.html">
+      CONCEPT
+    </a>
+
+    <a href="room.html">
+      ROOM
+    </a>
+
+    <a href="amenities.html">
+      AMENITIES
+    </a>
+
+    <a href="access.html">
+      ACCESS
+    </a>
+
+    <a href="contact.html">
+      CONTACT
+    </a>
+
+    <a
+      href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+      target="_blank"
+    >
+      RESERVATION
+    </a>
+
+  </div>
 
 
   <!-- =========================
@@ -611,16 +738,13 @@
     <div class="hero-content">
 
       <div class="hero-en">
-
         STAY LIKE<br>
         A RESORT
-
       </div>
 
     </div>
 
   </section>
-
 
 
   <!-- =========================
@@ -635,15 +759,12 @@
         ABOUT OUR ROOM
       </div>
 
-
       <h2>
         大阪に泊まる。<br>
         海辺のリゾートのように。
       </h2>
 
-
       <p>
-
         ビーチリゾートをイメージした
         デザイナーズルーム。<br>
 
@@ -656,7 +777,6 @@
         お部屋に入った瞬間から、
         まるで海辺のリゾートホテルに
         来たような開放感を感じていただけます。
-
       </p>
 
     </div>
@@ -671,7 +791,6 @@
   </section>
 
 
-
   <!-- =========================
        CONCEPT
   ========================= -->
@@ -682,14 +801,11 @@
       OUR CONCEPT
     </div>
 
-
     <h2>
       暮らすように泊まる。
     </h2>
 
-
     <p>
-
       大阪観光を思いきり楽しんだあとは、
       リゾートのような空間で、
       ゆったりとした時間を。
@@ -707,11 +823,9 @@
       ホテルとは少し違う、
       「暮らすように泊まる」
       大阪旅をお楽しみください。
-
     </p>
 
   </section>
-
 
 
   <!-- =========================
@@ -725,7 +839,6 @@
       <div class="en">
         PERFECT FOR
       </div>
-
 
       <h2>
         グループ＆ファミリーに
@@ -743,22 +856,17 @@
           01
         </div>
 
-
         <h3>
           FAMILY
         </h3>
 
-
         <p>
-
           ご家族での大阪旅行に。<br>
           みんなでゆったり過ごせる
           広々とした空間。
-
         </p>
 
       </div>
-
 
 
       <div class="stay-item">
@@ -767,22 +875,17 @@
           02
         </div>
 
-
         <h3>
           GIRLS TRIP
         </h3>
 
-
         <p>
-
           女子旅やグループ旅行にも。<br>
           お洒落なリビングで
           旅の思い出をシェア。
-
         </p>
 
       </div>
-
 
 
       <div class="stay-item">
@@ -791,18 +894,14 @@
           03
         </div>
 
-
         <h3>
           LONG STAY
         </h3>
 
-
         <p>
-
           最大6名様まで宿泊可能。<br>
           2泊3日からの滞在にも
           おすすめです。
-
         </p>
 
       </div>
@@ -811,7 +910,6 @@
     </div>
 
   </section>
-
 
 
   <!-- =========================
@@ -829,27 +927,32 @@
           ACCESS TO OSAKA & KANSAI
         </div>
 
-
         <h2>
           人気観光スポットへのアクセス
         </h2>
 
-
         <p>
           SORAは大阪観光はもちろん、<br>
           京都・奈良・神戸への関西旅行の拠点としても便利な立地です。
+          <br>
+          観光スポットを押すと、花園町駅からのアクセス案内が表示されます。
         </p>
 
       </div>
 
 
-
       <div class="access-list">
 
 
-        <!-- なんば -->
+        <!-- =========================
+             なんば・道頓堀
+        ========================= -->
 
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="道頓堀"
+        >
 
           <div class="access-icon">
             📍
@@ -862,7 +965,7 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約3分
+              🚇 電車＋徒歩で約10〜15分
             </div>
 
             <div class="access-desc">
@@ -870,15 +973,59 @@
               道頓堀・黒門市場・なんばエリアへ気軽にアクセス。
             </div>
 
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → なんば・道頓堀
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → なんば駅
+              </div>
+
+              <div class="access-route-step">
+                Osaka Metro 四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ なんば駅から道頓堀まで徒歩
+              </div>
+
+              <div class="access-route-info">
+                乗換：なし<br>
+                電車＋徒歩の目安：約10〜15分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
+            </div>
+
           </div>
 
         </div>
 
 
+        <!-- =========================
+             心斎橋
+        ========================= -->
 
-        <!-- 心斎橋 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="心斎橋"
+        >
 
           <div class="access-icon">
             🛍
@@ -891,11 +1038,50 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約8分
+              🚇 電車＋徒歩で約15分
             </div>
 
             <div class="access-desc">
               心斎橋筋商店街やブランドショップ巡りにおすすめ。
+            </div>
+
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 心斎橋
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → 四ツ橋駅
+              </div>
+
+              <div class="access-route-step">
+                Osaka Metro 四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ 四ツ橋駅から心斎橋エリアへ徒歩
+              </div>
+
+              <div class="access-route-info">
+                乗換：なし<br>
+                電車＋徒歩の目安：約15分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
             </div>
 
           </div>
@@ -903,10 +1089,15 @@
         </div>
 
 
+        <!-- =========================
+             梅田
+        ========================= -->
 
-        <!-- 梅田 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="梅田駅"
+        >
 
           <div class="access-icon">
             🌆
@@ -919,7 +1110,7 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約15分
+              🚇 電車＋徒歩で約20分
             </div>
 
             <div class="access-desc">
@@ -927,15 +1118,59 @@
               大阪を代表する人気エリア。
             </div>
 
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 梅田
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → 西梅田駅
+              </div>
+
+              <div class="access-route-step">
+                Osaka Metro 四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ 西梅田駅から大阪駅・梅田エリアへ徒歩
+              </div>
+
+              <div class="access-route-info">
+                乗換：なし<br>
+                電車＋徒歩の目安：約20分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
+            </div>
+
           </div>
 
         </div>
 
 
+        <!-- =========================
+             通天閣・新世界
+        ========================= -->
 
-        <!-- 通天閣 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="通天閣"
+        >
 
           <div class="access-icon">
             🗼
@@ -948,11 +1183,50 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約7分
+              🚇 電車＋徒歩で約15分
             </div>
 
             <div class="access-desc">
               大阪らしい街並みや串カツなどの食べ歩きが楽しめます。
+            </div>
+
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 通天閣・新世界
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → 大国町駅
+              </div>
+
+              <div class="access-route-step">
+                Osaka Metro 四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ 大国町駅から通天閣・新世界まで徒歩
+              </div>
+
+              <div class="access-route-info">
+                乗換：なし<br>
+                電車＋徒歩の目安：約15分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
             </div>
 
           </div>
@@ -960,10 +1234,15 @@
         </div>
 
 
+        <!-- =========================
+             天王寺
+        ========================= -->
 
-        <!-- 天王寺 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="天王寺駅"
+        >
 
           <div class="access-icon">
             🐘
@@ -976,7 +1255,7 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約10分
+              🚇 電車＋乗換で約20〜25分
             </div>
 
             <div class="access-desc">
@@ -984,15 +1263,63 @@
               人気スポットが集まっています。
             </div>
 
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 天王寺
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → 大国町駅
+              </div>
+
+              <div class="access-route-step">
+                四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ 大国町駅で御堂筋線へ乗り換え
+              </div>
+
+              <div class="access-route-step">
+                ④ 大国町駅 → 天王寺駅
+              </div>
+
+              <div class="access-route-info">
+                乗換：1回<br>
+                電車＋徒歩の目安：約20〜25分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
+            </div>
+
           </div>
 
         </div>
 
 
+        <!-- =========================
+             teamLab
+        ========================= -->
 
-        <!-- teamLab -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="teamLab Botanical Garden Osaka"
+        >
 
           <div class="access-icon">
             🌿
@@ -1005,11 +1332,58 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約20分
+              🚇 電車＋徒歩で約25〜30分
             </div>
 
             <div class="access-desc">
               長居公園にある、幻想的なナイトアートが楽しめる人気スポット。
+            </div>
+
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → teamLab Botanical Garden Osaka
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → 大国町駅
+              </div>
+
+              <div class="access-route-step">
+                四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ 大国町駅で御堂筋線へ乗り換え
+              </div>
+
+              <div class="access-route-step">
+                ④ 大国町駅 → 長居駅
+              </div>
+
+              <div class="access-route-step">
+                ⑤ 長居駅から長居公園へ徒歩
+              </div>
+
+              <div class="access-route-info">
+                乗換：1回<br>
+                電車＋徒歩の目安：約25〜30分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
             </div>
 
           </div>
@@ -1017,10 +1391,15 @@
         </div>
 
 
+        <!-- =========================
+             大阪城
+        ========================= -->
 
-        <!-- 大阪城 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="大阪城公園"
+        >
 
           <div class="access-icon">
             🏯
@@ -1033,7 +1412,7 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約25分
+              🚇 電車＋乗換＋徒歩で約30〜40分
             </div>
 
             <div class="access-desc">
@@ -1041,15 +1420,63 @@
               春の桜や季節の景色も人気です。
             </div>
 
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 大阪城
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅から大阪市内中心部方面へ
+              </div>
+
+              <div class="access-route-step">
+                ③ 乗換駅でJR・Osaka Metroなどへ接続
+              </div>
+
+              <div class="access-route-step">
+                ④ 大阪城公園方面の駅で下車
+              </div>
+
+              <div class="access-route-step">
+                ⑤ 駅から大阪城公園へ徒歩
+              </div>
+
+              <div class="access-route-info">
+                ルートは利用する駅・時間帯によって変わります。<br>
+                下のGoogleマップから最新ルートをご確認ください。
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
+            </div>
+
           </div>
 
         </div>
 
 
+        <!-- =========================
+             USJ
+        ========================= -->
 
-        <!-- USJ -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="ユニバーサル・スタジオ・ジャパン"
+        >
 
           <div class="access-icon">
             🎡
@@ -1062,11 +1489,54 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約25〜30分
+              🚃 電車＋乗換で約35〜45分
             </div>
 
             <div class="access-desc">
               ファミリーや友人同士の旅行に大人気のテーマパーク。
+            </div>
+
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → USJ
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → なんば方面へ
+              </div>
+
+              <div class="access-route-step">
+                ③ JR線などへ乗り換え
+              </div>
+
+              <div class="access-route-step">
+                ④ ユニバーサルシティ駅へ
+              </div>
+
+              <div class="access-route-step">
+                ⑤ 駅からUSJまで徒歩
+              </div>
+
+              <div class="access-route-info">
+                乗換あり<br>
+                時間は出発時刻・列車によって変わります。
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
             </div>
 
           </div>
@@ -1074,10 +1544,15 @@
         </div>
 
 
+        <!-- =========================
+             関空
+        ========================= -->
 
-        <!-- 関空 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="関西国際空港"
+        >
 
           <div class="access-icon">
             ✈
@@ -1090,11 +1565,50 @@
             </div>
 
             <div class="access-time">
-              🚆 電車で約45〜60分
+              🚆 電車＋乗換で約50〜60分
             </div>
 
             <div class="access-desc">
               南海電車を利用するとスムーズにアクセスできます。
+            </div>
+
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 関西国際空港
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → なんば方面へ
+              </div>
+
+              <div class="access-route-step">
+                ③ なんば駅で南海電鉄へ乗り換え
+              </div>
+
+              <div class="access-route-step">
+                ④ 南海線 → 関西空港駅
+              </div>
+
+              <div class="access-route-info">
+                乗換：1回が目安<br>
+                列車によって所要時間が変わります。
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
             </div>
 
           </div>
@@ -1102,10 +1616,15 @@
         </div>
 
 
+        <!-- =========================
+             新大阪
+        ========================= -->
 
-        <!-- 新大阪 -->
-
-        <div class="access-item">
+        <div
+          class="access-item"
+          onclick="toggleRoute(this)"
+          data-destination="新大阪駅"
+        >
 
           <div class="access-icon">
             🚅
@@ -1118,11 +1637,54 @@
             </div>
 
             <div class="access-time">
-              🚇 電車で約25分
+              🚇 電車＋乗換で約20〜25分
             </div>
 
             <div class="access-desc">
               新幹線をご利用のお客様にも便利です。
+            </div>
+
+
+            <div class="access-route">
+
+              <div class="access-route-title">
+                🚃 SORA → 新大阪
+              </div>
+
+              <div class="access-route-step">
+                ① SORA → 花園町駅
+              </div>
+
+              <div class="access-route-step">
+                ② 花園町駅 → 大国町駅
+              </div>
+
+              <div class="access-route-step">
+                四つ橋線・西梅田方面
+              </div>
+
+              <div class="access-route-step">
+                ③ 大国町駅で御堂筋線へ乗り換え
+              </div>
+
+              <div class="access-route-step">
+                ④ 御堂筋線 → 新大阪駅
+              </div>
+
+              <div class="access-route-info">
+                乗換：1回<br>
+                電車＋徒歩の目安：約20〜25分
+              </div>
+
+              <a
+                href="#"
+                class="access-map"
+                target="_blank"
+                onclick="event.stopPropagation(); openMap(this);"
+              >
+                Googleマップでルートを見る
+              </a>
+
             </div>
 
           </div>
@@ -1131,7 +1693,6 @@
 
 
       </div>
-
 
 
       <div class="access-message">
@@ -1149,7 +1710,6 @@
   </section>
 
 
-
   <!-- =========================
        TOPへ戻る
   ========================= -->
@@ -1160,12 +1720,92 @@
       href="index.html"
       class="back"
     >
-
       ← TOPへ戻る
-
     </a>
 
   </footer>
+
+
+  <!-- =========================
+       メニュー・アクセス開閉・Googleマップ
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       メニューを開く
+    ========================= */
+
+    function openMenu() {
+
+      document
+        .getElementById("menu")
+        .classList
+        .add("open");
+
+    }
+
+
+    /* =========================
+       メニューを閉じる
+    ========================= */
+
+    function closeMenu() {
+
+      document
+        .getElementById("menu")
+        .classList
+        .remove("open");
+
+    }
+
+
+    /* =========================
+       アクセス開閉
+    ========================= */
+
+    function toggleRoute(item) {
+
+      const route = item.querySelector(".access-route");
+
+      const isOpen = route.classList.contains("open");
+
+      // すべて閉じる
+      document.querySelectorAll(".access-route").forEach(function(target) {
+        target.classList.remove("open");
+      });
+
+      // 押したカードが閉じていた場合だけ開く
+      if (!isOpen) {
+        route.classList.add("open");
+      }
+
+    }
+
+
+    /* =========================
+       Googleマップ
+    ========================= */
+
+    function openMap(button) {
+
+      const item = button.closest(".access-item");
+
+      const destination = item.dataset.destination;
+
+      const origin = "花園町駅";
+
+      const url =
+        "https://www.google.com/maps/dir/?api=1" +
+        "&origin=" + encodeURIComponent(origin) +
+        "&destination=" + encodeURIComponent(destination) +
+        "&travelmode=transit";
+
+      button.href = url;
+
+    }
+
+  </script>
 
 
 </body>

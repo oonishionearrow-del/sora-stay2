@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>設備・アメニティ | SORA</title>
+
 
   <style>
 
@@ -14,27 +17,198 @@
       box-sizing: border-box;
     }
 
+
+    /* =========================
+       ページ全体
+    ========================= */
+
     body {
       font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+
       color: #333;
+
       background: #fff;
+
       line-height: 1.9;
     }
 
 
-    /* ===== HERO ===== */
+    /* =========================
+       ロゴ
+    ========================= */
+
+    .logo {
+
+      position: absolute;
+
+      top: 20px;
+      left: 30px;
+
+      width: 200px;
+
+      z-index: 20;
+    }
+
+
+    /* =========================
+       三本線メニューボタン
+    ========================= */
+
+    .menu-button {
+
+      position: fixed;
+
+      top: 25px;
+      right: 30px;
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+
+      background: rgba(0, 40, 60, 0.75);
+
+      color: white;
+
+      font-size: 27px;
+
+      cursor: pointer;
+
+      border-radius: 50%;
+
+      backdrop-filter: blur(5px);
+
+      z-index: 50;
+
+      transition: 0.3s;
+    }
+
+
+    .menu-button:hover {
+
+      background: rgba(0, 40, 60, 0.95);
+
+    }
+
+
+    /* =========================
+       メニュー
+    ========================= */
+
+    .menu {
+
+      position: fixed;
+
+      top: 0;
+
+      right: -300px;
+
+      width: 300px;
+
+      height: 100vh;
+
+      background: rgba(0, 40, 60, 0.95);
+
+      padding: 100px 40px 40px;
+
+      transition: right 0.4s ease;
+
+      z-index: 60;
+
+      backdrop-filter: blur(8px);
+    }
+
+
+    /* メニューを開いた状態 */
+
+    .menu.open {
+
+      right: 0;
+
+    }
+
+
+    /* =========================
+       メニュー項目
+    ========================= */
+
+    .menu a {
+
+      display: block;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 18px;
+
+      letter-spacing: 4px;
+
+      padding: 18px 0;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.3);
+
+      transition: 0.3s;
+    }
+
+
+    .menu a:hover {
+
+      padding-left: 10px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+    }
+
+
+    /* =========================
+       閉じるボタン
+    ========================= */
+
+    .close {
+
+      position: absolute;
+
+      top: 25px;
+
+      right: 30px;
+
+      color: white;
+
+      font-size: 32px;
+
+      cursor: pointer;
+
+      line-height: 1;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
+
       width: 86%;
+
       height: 65vh;
+
       min-height: 500px;
+
       margin: 50px auto 0;
 
       background-image:
-        linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)),
+
+        linear-gradient(
+          rgba(0,0,0,0.05),
+          rgba(0,0,0,0.05)
+        ),
+
         url("images/AMENITIES.jpg");
 
       background-size: cover;
+
       background-position: center;
 
       position: relative;
@@ -42,8 +216,11 @@
 
 
     .hero-content {
+
       position: absolute;
+
       left: 45px;
+
       bottom: 40px;
 
       color: white;
@@ -54,180 +231,271 @@
 
 
     .hero-en {
+
       font-size: clamp(40px, 6vw, 75px);
+
       letter-spacing: 0.12em;
+
       font-weight: 300;
+
       line-height: 1.05;
     }
 
 
     .hero-ja {
+
       margin-top: 15px;
+
       font-size: 14px;
+
       letter-spacing: 0.25em;
     }
 
 
-    /* ===== INTRO ===== */
+    /* =========================
+       INTRO
+    ========================= */
 
     .intro {
+
       max-width: 950px;
+
       margin: 0 auto;
+
       padding: 110px 30px;
+
       text-align: center;
     }
 
 
     .intro-title {
+
       font-size: 12px;
+
       letter-spacing: 0.3em;
+
       color: #56a9b7;
+
       margin-bottom: 20px;
     }
 
 
     .intro h2 {
-      font-size: clamp(27px, 3.5vw, 45px);
+
+      font-size:
+        clamp(27px, 3.5vw, 45px);
+
       font-weight: 300;
+
       line-height: 1.5;
+
       letter-spacing: 0.08em;
+
       margin-bottom: 30px;
     }
 
 
     .intro p {
+
       max-width: 650px;
+
       margin: 0 auto;
+
       font-size: 14px;
+
       line-height: 2.2;
+
       color: #666;
     }
 
 
-    /* ===== AMENITIES ===== */
+    /* =========================
+       AMENITIES
+    ========================= */
 
     .amenities {
+
       max-width: 950px;
+
       margin: 0 auto;
+
       padding: 0 30px 110px;
     }
 
 
     .section-title {
+
       text-align: center;
+
       margin-bottom: 50px;
     }
 
 
     .section-title .en {
+
       font-size: 12px;
+
       letter-spacing: 0.35em;
+
       color: #56a9b7;
     }
 
 
     .section-title h2 {
+
       margin-top: 12px;
+
       font-size: 27px;
+
       font-weight: 300;
+
       letter-spacing: 0.15em;
     }
 
 
-    /* ===== カテゴリー ===== */
+    /* =========================
+       カテゴリー
+    ========================= */
 
     .amenity-category {
+
       margin-bottom: 70px;
     }
 
 
     .category-title {
+
       display: flex;
+
       align-items: center;
+
       gap: 15px;
+
       margin-bottom: 25px;
     }
 
 
     .category-number {
+
       font-size: 11px;
+
       letter-spacing: 0.2em;
+
       color: #56a9b7;
     }
 
 
     .category-title h3 {
+
       font-size: 20px;
+
       font-weight: 400;
+
       letter-spacing: 0.1em;
     }
 
 
-    /* ===== アイテム ===== */
+    /* =========================
+       アイテム
+    ========================= */
 
     .amenity-grid {
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 12px;
     }
 
 
     .amenity-item {
+
       padding: 18px 15px;
-      border: 1px solid #e3eeee;
+
+      border:
+        1px solid #e3eeee;
+
       background: #fff;
+
       text-align: center;
+
       font-size: 13px;
+
       color: #555;
     }
 
 
-    /* ===== 最後のメッセージ ===== */
+    /* =========================
+       最後のメッセージ
+    ========================= */
 
     .note {
+
       background: #f5fbfb;
+
       padding: 50px 30px;
+
       text-align: center;
+
       margin-bottom: 110px;
     }
 
 
     .note-en {
+
       font-size: 11px;
+
       letter-spacing: 0.35em;
+
       color: #56a9b7;
+
       margin-bottom: 15px;
     }
 
 
     .note p {
+
       font-size: 13px;
+
       line-height: 2;
+
       color: #666;
     }
 
 
-    /* ===== TOPへ戻る ===== */
+    /* =========================
+       TOPへ戻る
+    ========================= */
 
     footer {
+
       padding: 50px 20px;
+
       text-align: center;
+
       background: #fff;
     }
 
 
     .back {
+
       display: block;
+
       width: fit-content;
+
       margin: 0 auto;
 
       color: #333;
+
       text-decoration: none;
 
       padding: 12px 22px;
 
       border:
-        1px solid rgba(51, 51, 51, 0.6);
+        1px solid
+        rgba(51, 51, 51, 0.6);
 
       border-radius: 30px;
 
@@ -243,85 +511,175 @@
 
 
     .back:hover {
+
       background:
         rgba(51, 51, 51, 0.15);
     }
 
 
-    /* ===== スマホ ===== */
+    /* =========================
+       スマホ
+    ========================= */
 
-   @media (max-width: 768px) {
+    @media (max-width: 768px) {
 
-.intro p {
-    text-align: left;
-  }
 
-  .hero {
-    width: 92%;
-    height: 260px;
-    min-height: 0;
+      .logo {
 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+        width: 140px;
 
-    margin-top: 30px;
-  }
+        top: 20px;
 
-  .hero-content {
-    left: 25px;
-    bottom: 30px;
-  }
+        left: 20px;
+      }
 
-  .hero-en {
-    font-size: 40px;
-  }
 
-  .intro {
-    padding: 75px 25px;
-  }
+      .menu-button {
 
-.intro h2 {
-  font-size: 24px;
-  letter-spacing: 0.04em;
-  line-height: 1.6;
-  white-space: nowrap;
-}
+        top: 20px;
 
-  .amenities {
-    padding: 0 25px 75px;
-  }
+        right: 20px;
 
- .amenity-grid {
-  display: block;
-  border: 1px solid #e3eeee;
-  padding: 18px 20px;
-}
+        width: 42px;
 
-.amenity-item {
-  border: none;
-  border-bottom: 1px solid #edf3f3;
-  padding: 10px 0;
-  text-align: left;
-}
+        height: 42px;
 
-.amenity-item:last-child {
-  border-bottom: none;
-}
+        font-size: 25px;
+      }
 
-  .amenity-category {
-    margin-bottom: 55px;
-  }
 
-  .note {
-    margin-bottom: 75px;
-    padding: 40px 25px;
-  }
-.note p {
-  text-align: left;
-}
+      .menu {
 
-}
+        width: 220px;
+
+        padding:
+          90px 30px 30px;
+      }
+
+
+      .menu a {
+
+        font-size: 15px;
+
+        padding: 15px 0;
+
+        letter-spacing: 3px;
+      }
+
+
+      .intro p {
+
+        text-align: left;
+      }
+
+
+      .hero {
+
+        width: 92%;
+
+        height: 260px;
+
+        min-height: 0;
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        background-position: center;
+
+        margin-top: 80px;
+      }
+
+
+      .hero-content {
+
+        left: 25px;
+
+        bottom: 30px;
+      }
+
+
+      .hero-en {
+
+        font-size: 40px;
+      }
+
+
+      .intro {
+
+        padding: 75px 25px;
+      }
+
+
+      .intro h2 {
+
+        font-size: 24px;
+
+        letter-spacing: 0.04em;
+
+        line-height: 1.6;
+
+        white-space: nowrap;
+      }
+
+
+      .amenities {
+
+        padding:
+          0 25px 75px;
+      }
+
+
+      .amenity-grid {
+
+        display: block;
+
+        border:
+          1px solid #e3eeee;
+
+        padding: 18px 20px;
+      }
+
+
+      .amenity-item {
+
+        border: none;
+
+        border-bottom:
+          1px solid #edf3f3;
+
+        padding: 10px 0;
+
+        text-align: left;
+      }
+
+
+      .amenity-item:last-child {
+
+        border-bottom: none;
+      }
+
+
+      .amenity-category {
+
+        margin-bottom: 55px;
+      }
+
+
+      .note {
+
+        margin-bottom: 75px;
+
+        padding: 40px 25px;
+      }
+
+
+      .note p {
+
+        text-align: left;
+      }
+
+    }
 
   </style>
 
@@ -331,7 +689,89 @@
 <body>
 
 
-  <!-- ===== HERO ===== -->
+  <!-- =========================
+       ロゴ
+  ========================= -->
+
+  <img
+    src="images/logo.png"
+    alt="SORAのロゴ"
+    class="logo"
+  >
+
+
+  <!-- =========================
+       三本線
+  ========================= -->
+
+  <button
+    class="menu-button"
+    onclick="openMenu()"
+  >
+    ☰
+  </button>
+
+
+  <!-- =========================
+       メニュー
+  ========================= -->
+
+  <div
+    class="menu"
+    id="menu"
+  >
+
+
+    <!-- 閉じる -->
+
+    <div
+      class="close"
+      onclick="closeMenu()"
+    >
+      ×
+    </div>
+
+
+    <a href="concept.html">
+      CONCEPT
+    </a>
+
+
+    <a href="room.html">
+      ROOM
+    </a>
+
+
+    <a href="amenities.html">
+      AMENITIES
+    </a>
+
+
+    <a href="access.html">
+      ACCESS
+    </a>
+
+
+    <a href="contact.html">
+      CONTACT
+    </a>
+
+
+    <a
+      href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+      target="_blank"
+    >
+      RESERVATION
+    </a>
+
+
+  </div>
+
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
 
   <section class="hero">
 
@@ -351,7 +791,9 @@
 
 
 
-  <!-- ===== INTRO ===== -->
+  <!-- =========================
+       INTRO
+  ========================= -->
 
   <section class="intro">
 
@@ -369,7 +811,9 @@
       ご滞在中に快適にお過ごしいただけるよう、
       お部屋の設備からキッチン用品、
       バスルームやアメニティまでご用意しています。
+
       <br><br>
+
       ご家族やグループでの滞在にも使いやすい、
       「暮らすように泊まる」ための空間です。
     </p>
@@ -378,7 +822,9 @@
 
 
 
-  <!-- ===== AMENITIES LIST ===== -->
+  <!-- =========================
+       AMENITIES LIST
+  ========================= -->
 
   <section class="amenities">
 
@@ -397,7 +843,9 @@
 
 
 
-    <!-- ===== お部屋 ===== -->
+    <!-- =========================
+         お部屋
+    ========================= -->
 
     <div class="amenity-category">
 
@@ -466,7 +914,9 @@
 
 
 
-    <!-- ===== キッチン ===== -->
+    <!-- =========================
+         キッチン
+    ========================= -->
 
     <div class="amenity-category">
 
@@ -535,7 +985,9 @@
 
 
 
-    <!-- ===== バスルーム ===== -->
+    <!-- =========================
+         バスルーム
+    ========================= -->
 
     <div class="amenity-category">
 
@@ -592,7 +1044,9 @@
 
 
 
-    <!-- ===== アメニティ ===== -->
+    <!-- =========================
+         アメニティ
+    ========================= -->
 
     <div class="amenity-category">
 
@@ -668,7 +1122,9 @@
 
 
 
-  <!-- ===== NOTE ===== -->
+  <!-- =========================
+       NOTE
+  ========================= -->
 
   <section class="note">
 
@@ -685,7 +1141,9 @@
 
 
 
-  <!-- ===== TOPへ戻る ===== -->
+  <!-- =========================
+       TOPへ戻る
+  ========================= -->
 
   <footer>
 
@@ -699,5 +1157,35 @@
   </footer>
 
 
+
+  <!-- =========================
+       メニュー開閉
+  ========================= -->
+
+  <script>
+
+    function openMenu() {
+
+      document
+        .getElementById("menu")
+        .classList
+        .add("open");
+
+    }
+
+
+    function closeMenu() {
+
+      document
+        .getElementById("menu")
+        .classList
+        .remove("open");
+
+    }
+
+  </script>
+
+
 </body>
+
 </html>

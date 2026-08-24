@@ -35,6 +35,153 @@
 
 
     /* =========================
+       ロゴ
+    ========================= */
+
+    .logo {
+
+      position: absolute;
+
+      top: 20px;
+      left: 30px;
+
+      width: 200px;
+
+      z-index: 20;
+    }
+
+
+    /* =========================
+       三本線メニュー
+    ========================= */
+
+    .menu-button {
+
+      position: fixed;
+
+      top: 25px;
+      right: 30px;
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+
+      background: rgba(0, 40, 60, 0.75);
+
+      color: white;
+
+      font-size: 27px;
+
+      cursor: pointer;
+
+      border-radius: 50%;
+
+      backdrop-filter: blur(5px);
+
+      z-index: 50;
+
+      transition: 0.3s;
+    }
+
+
+    .menu-button:hover {
+
+      background: rgba(0, 40, 60, 0.95);
+    }
+
+
+    /* =========================
+       メニュー
+    ========================= */
+
+    .menu {
+
+      position: fixed;
+
+      top: 0;
+
+      right: -300px;
+
+      width: 300px;
+
+      height: 100vh;
+
+      background: rgba(0, 40, 60, 0.95);
+
+      padding: 100px 40px 40px;
+
+      transition: right 0.4s ease;
+
+      z-index: 60;
+
+      backdrop-filter: blur(8px);
+    }
+
+
+    .menu.open {
+
+      right: 0;
+    }
+
+
+    /* =========================
+       メニュー項目
+    ========================= */
+
+    .menu a {
+
+      display: block;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 18px;
+
+      letter-spacing: 4px;
+
+      padding: 18px 0;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.3);
+
+      transition: 0.3s;
+    }
+
+
+    .menu a:hover {
+
+      padding-left: 10px;
+
+      background:
+        rgba(255, 255, 255, 0.08);
+    }
+
+
+    /* =========================
+       閉じる
+    ========================= */
+
+    .close {
+
+      position: absolute;
+
+      top: 25px;
+
+      right: 30px;
+
+      color: white;
+
+      font-size: 32px;
+
+      cursor: pointer;
+
+      line-height: 1;
+    }
+
+
+    /* =========================
        HERO
     ========================= */
 
@@ -57,14 +204,11 @@
 
       background-size: cover;
 
-      /* 少し下側を見せる */
       background-position: center 70%;
 
       position: relative;
     }
 
-
-    /* 画像の下側に文字 */
 
     .hero-content {
 
@@ -426,17 +570,66 @@
     @media (max-width: 768px) {
 
 
+      .logo {
+
+        width: 140px;
+
+        top: 20px;
+
+        left: 20px;
+      }
+
+
+      .menu-button {
+
+        top: 20px;
+
+        right: 20px;
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 25px;
+      }
+
+
+      .menu {
+
+        width: 220px;
+
+        padding:
+          90px 30px 30px;
+      }
+
+
+      .menu a {
+
+        font-size: 15px;
+
+        padding: 15px 0;
+
+        letter-spacing: 3px;
+      }
+
+
       .hero {
-  width: 92%;
-  height: 260px;
-  min-height: 0;
 
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+        width: 92%;
 
-  margin-top: 30px;
-}
+        height: 260px;
+
+        min-height: 0;
+
+        background-size: contain;
+
+        background-repeat: no-repeat;
+
+        background-position: center;
+
+        margin-top: 80px;
+      }
+
 
       .hero-content {
 
@@ -457,9 +650,11 @@
         padding: 75px 25px;
       }
 
-.intro p {
-  text-align: left;
-}
+
+      .intro p {
+
+        text-align: left;
+      }
 
 
       .access {
@@ -498,6 +693,86 @@
 
 
 <body>
+
+
+  <!-- =========================
+       ロゴ
+  ========================= -->
+
+  <img
+    src="images/logo.png"
+    alt="SORAのロゴ"
+    class="logo"
+  >
+
+
+  <!-- =========================
+       三本線
+  ========================= -->
+
+  <button
+    class="menu-button"
+    onclick="openMenu()"
+  >
+    ☰
+  </button>
+
+
+  <!-- =========================
+       メニュー
+  ========================= -->
+
+  <div
+    class="menu"
+    id="menu"
+  >
+
+
+    <!-- 閉じる -->
+
+    <div
+      class="close"
+      onclick="closeMenu()"
+    >
+      ×
+    </div>
+
+
+    <a href="concept.html">
+      CONCEPT
+    </a>
+
+
+    <a href="room.html">
+      ROOM
+    </a>
+
+
+    <a href="amenities.html">
+      AMENITIES
+    </a>
+
+
+    <a href="access.html">
+      ACCESS
+    </a>
+
+
+    <a href="contact.html">
+      CONTACT
+    </a>
+
+
+    <a
+      href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+      target="_blank"
+    >
+      RESERVATION
+    </a>
+
+
+  </div>
+
 
 
   <!-- =========================
@@ -713,6 +988,35 @@
     </a>
 
   </footer>
+
+
+
+  <!-- =========================
+       メニュー開閉
+  ========================= -->
+
+  <script>
+
+    function openMenu() {
+
+      document
+        .getElementById("menu")
+        .classList
+        .add("open");
+
+    }
+
+
+    function closeMenu() {
+
+      document
+        .getElementById("menu")
+        .classList
+        .remove("open");
+
+    }
+
+  </script>
 
 
 </body>

@@ -38,6 +38,144 @@
 
 
         /* =========================
+           右上 三本線
+        ========================= */
+
+        .menu-button {
+
+            position: fixed;
+
+            top: 30px;
+
+            right: 35px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            background:
+                rgba(0, 0, 0, 0.45);
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            border-radius: 50%;
+
+            backdrop-filter: blur(5px);
+
+            z-index: 100;
+        }
+
+
+        .menu-button:hover {
+
+            background:
+                rgba(0, 0, 0, 0.7);
+        }
+
+
+        /* =========================
+           メニュー
+        ========================= */
+
+        .menu {
+
+            position: fixed;
+
+            top: 0;
+
+            right: -300px;
+
+            width: 300px;
+
+            height: 100vh;
+
+            background:
+                rgba(0, 40, 60, 0.94);
+
+            padding:
+                100px 40px 40px;
+
+            transition:
+                right 0.4s ease;
+
+            z-index: 200;
+
+            box-shadow:
+                -5px 0 25px
+                rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* メニューが開いた状態 */
+
+        .menu.open {
+
+            right: 0;
+        }
+
+
+        /* =========================
+           メニュー項目
+        ========================= */
+
+        .menu a {
+
+            display: block;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            letter-spacing: 4px;
+
+            padding: 18px 0;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.3);
+
+            transition: 0.3s;
+        }
+
+
+        .menu a:hover {
+
+            padding-left: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+        }
+
+
+        /* =========================
+           閉じるボタン
+        ========================= */
+
+        .close {
+
+            position: absolute;
+
+            top: 30px;
+
+            right: 35px;
+
+            font-size: 30px;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
            HERO
         ========================= */
 
@@ -67,8 +205,6 @@
             position: relative;
         }
 
-
-        /* 画像下側の文字 */
 
         .hero-content {
 
@@ -428,20 +564,64 @@
            スマホ
         ========================= */
 
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
 
 
-           .hero {
-    width: 92%;
-    height: 260px;
-    min-height: 0;
+            .menu-button {
 
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+                top: 20px;
 
-    margin-top: 30px;
-  }
+                right: 20px;
+
+                width: 42px;
+
+                height: 42px;
+
+                font-size: 25px;
+            }
+
+
+            .menu {
+
+                width: 220px;
+
+                padding:
+                    90px 30px 30px;
+            }
+
+
+            .menu a {
+
+                font-size: 15px;
+
+                padding: 15px 0;
+            }
+
+
+            .close {
+
+                top: 20px;
+
+                right: 25px;
+            }
+
+
+            .hero {
+
+                width: 92%;
+
+                height: 260px;
+
+                min-height: 0;
+
+                background-size: contain;
+
+                background-repeat: no-repeat;
+
+                background-position: center;
+
+                margin-top: 30px;
+            }
 
 
             .hero-content {
@@ -459,15 +639,28 @@
 
 
             .intro {
-    padding: 70px 25px 55px;
-}
 
-.intro h2 {
-    font-size: 24px;
-    letter-spacing: 0.04em;
-    line-height: 1.6;
-    white-space: nowrap;
-}
+                padding:
+                    70px 25px 55px;
+            }
+
+
+            .intro h2 {
+
+                font-size: 24px;
+
+                letter-spacing: 0.04em;
+
+                line-height: 1.6;
+
+                white-space: nowrap;
+            }
+
+
+            .intro p {
+
+                text-align: left;
+            }
 
 
             .contact {
@@ -496,6 +689,81 @@
 
 
     <!-- =========================
+         三本線メニューボタン
+    ========================= -->
+
+    <button
+        class="menu-button"
+        onclick="openMenu()"
+    >
+
+        ☰
+
+    </button>
+
+
+    <!-- =========================
+         メニュー
+    ========================= -->
+
+    <nav
+        class="menu"
+        id="menu"
+    >
+
+        <div
+            class="close"
+            onclick="closeMenu()"
+        >
+
+            ×
+
+        </div>
+
+
+        <a href="index.html">
+            TOP
+        </a>
+
+
+        <a href="concept.html">
+            CONCEPT
+        </a>
+
+
+        <a href="room.html">
+            ROOM
+        </a>
+
+
+        <a href="amenities.html">
+            AMENITIES
+        </a>
+
+
+        <a href="access.html">
+            ACCESS
+        </a>
+
+
+        <a href="contact.html">
+            CONTACT
+        </a>
+
+
+        <a
+            href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+            target="_blank"
+        >
+
+            RESERVATION
+
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
          HERO
     ========================= -->
 
@@ -514,7 +782,6 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================
@@ -549,7 +816,6 @@
     </section>
 
 
-
     <!-- =========================
          CONTACT FORM
     ========================= -->
@@ -570,19 +836,19 @@
         </div>
 
 
-
         <form id="contactForm">
 
-
-            <!-- お名前 -->
 
             <div class="form-group">
 
                 <label>
+
                     お名前
+
                     <span class="required">
                         必須
                     </span>
+
                 </label>
 
                 <input
@@ -596,16 +862,16 @@
             </div>
 
 
-
-            <!-- メールアドレス -->
-
             <div class="form-group">
 
                 <label>
+
                     メールアドレス
+
                     <span class="required">
                         必須
                     </span>
+
                 </label>
 
                 <input
@@ -618,9 +884,6 @@
 
             </div>
 
-
-
-            <!-- 電話番号 -->
 
             <div class="form-group">
 
@@ -638,19 +901,23 @@
             </div>
 
 
-
-            <!-- お問い合わせ内容 -->
-
             <div class="form-group">
 
                 <label>
+
                     お問い合わせ内容
+
                     <span class="required">
                         必須
                     </span>
+
                 </label>
 
-                <select id="category" name="category" required>
+                <select
+                    id="category"
+                    name="category"
+                    required
+                >
 
                     <option value="">
                         お問い合わせ内容を選択
@@ -677,16 +944,16 @@
             </div>
 
 
-
-            <!-- メッセージ -->
-
             <div class="form-group">
 
                 <label>
+
                     お問い合わせ内容
+
                     <span class="required">
                         必須
                     </span>
+
                 </label>
 
                 <textarea
@@ -698,9 +965,6 @@
 
             </div>
 
-
-
-            <!-- 送信 -->
 
             <div class="submit-area">
 
@@ -721,46 +985,6 @@
     </section>
 
 
-    <script>
-
-        /* =========================
-           送信するとメールソフトが開き、
-           内容が入った状態で送信できる
-        ========================= */
-
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-
-            e.preventDefault();
-
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const tel = document.getElementById("tel").value;
-
-            const categorySelect = document.getElementById("category");
-            const category = categorySelect.options[categorySelect.selectedIndex].text;
-
-            const message = document.getElementById("message").value;
-
-            const subject = "【SORA】お問い合わせ：" + name + "様";
-
-            const body =
-                "お名前：" + name + "\n" +
-                "メールアドレス：" + email + "\n" +
-                "電話番号：" + tel + "\n" +
-                "お問い合わせ内容：" + category + "\n\n" +
-                "メッセージ：\n" + message;
-
-            window.location.href =
-                "mailto:a.yoneda@yamafuku.jp" +
-                "?subject=" + encodeURIComponent(subject) +
-                "&body=" + encodeURIComponent(body);
-
-        });
-
-    </script>
-
-
-
     <!-- =========================
          NOTE
     ========================= -->
@@ -774,13 +998,12 @@
         <p>
 
             ご予約をご希望の場合は、
-            「ご予約はこちら」から
+            「RESERVATION」から
             ご予約ページをご確認ください。
 
         </p>
 
     </section>
-
 
 
     <!-- =========================
@@ -799,6 +1022,156 @@
         </a>
 
     </footer>
+
+
+    <!-- =========================
+         JavaScript
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           メニューを開く
+        ========================= */
+
+        function openMenu() {
+
+            document
+                .getElementById("menu")
+                .classList
+                .add("open");
+
+        }
+
+
+        /* =========================
+           メニューを閉じる
+        ========================= */
+
+        function closeMenu() {
+
+            document
+                .getElementById("menu")
+                .classList
+                .remove("open");
+
+        }
+
+
+        /* =========================
+           メニューを押したら閉じる
+        ========================= */
+
+        document
+            .querySelectorAll(".menu a")
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        closeMenu();
+
+                    }
+                );
+
+            });
+
+
+        /* =========================
+           メール送信
+        ========================= */
+
+        document
+            .getElementById("contactForm")
+            .addEventListener(
+                "submit",
+                function(e) {
+
+                    e.preventDefault();
+
+
+                    const name =
+                        document
+                        .getElementById("name")
+                        .value;
+
+
+                    const email =
+                        document
+                        .getElementById("email")
+                        .value;
+
+
+                    const tel =
+                        document
+                        .getElementById("tel")
+                        .value;
+
+
+                    const categorySelect =
+                        document
+                        .getElementById("category");
+
+
+                    const category =
+                        categorySelect
+                        .options[
+                            categorySelect.selectedIndex
+                        ]
+                        .text;
+
+
+                    const message =
+                        document
+                        .getElementById("message")
+                        .value;
+
+
+                    const subject =
+                        "【SORA】お問い合わせ：" +
+                        name +
+                        "様";
+
+
+                    const body =
+
+                        "お名前：" +
+                        name +
+                        "\n" +
+
+                        "メールアドレス：" +
+                        email +
+                        "\n" +
+
+                        "電話番号：" +
+                        tel +
+                        "\n" +
+
+                        "お問い合わせ内容：" +
+                        category +
+                        "\n\n" +
+
+                        "メッセージ：\n" +
+                        message;
+
+
+                    window.location.href =
+
+                        "mailto:a.yoneda@yamafuku.jp" +
+
+                        "?subject=" +
+                        encodeURIComponent(subject) +
+
+                        "&body=" +
+                        encodeURIComponent(body);
+
+                }
+            );
+
+
+    </script>
 
 
 </body>
