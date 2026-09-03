@@ -71,6 +71,18 @@
 
 
         /* =========================
+           ヘッダー（ロゴ＋メニューの入れ物）
+           PCでは何もしない（元のまま）。
+           スマホ用の見た目は下の
+           @media 内でまとめて指定する。
+        ========================= */
+
+        .site-header {
+            display: contents;
+        }
+
+
+        /* =========================
            左上のロゴ
         ========================= */
 
@@ -281,10 +293,32 @@
 
 @media (max-width: 800px) {
 
+    /* ロゴとメニューを1本の固定バーにまとめる */
+
+    .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 64px;
+
+        background: rgba(0, 40, 60, 0.85);
+        backdrop-filter: blur(6px);
+
+        padding: 0 18px;
+
+        z-index: 25;
+    }
+
     .logo {
-        width: 120px;
-        top: 20px;
-        left: 20px;
+        position: static;
+        width: auto;
+        height: 34px;
     }
 
  .welcome {
@@ -300,20 +334,19 @@
 }
 
     .top-menu {
-        top: 20px;
-        right: 20px;
+        position: static;
         gap: 8px;
     }
 
     .reservation {
-        padding: 10px 14px;
-        font-size: 12px;
+        padding: 8px 12px;
+        font-size: 11px;
     }
 
     .menu-button {
-        width: 42px;
-        height: 42px;
-        font-size: 25px;
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
     }
 
     .menu {
@@ -334,15 +367,6 @@
     <div class="hero-section">
 
 
-        <!-- 左上のロゴ -->
-
-        <img
-            src="images/logo.png"
-            alt="SORAのロゴ"
-            class="logo"
-        >
-
-
         <!-- ようこそ -->
 
         <div class="welcome">
@@ -355,33 +379,49 @@
     </div>
 
 
-    <!-- 右上：予約＋三本線 -->
+    <!-- ヘッダー（ロゴ＋予約＋三本線） -->
 
-    <div class="top-menu">
-
-
-        <!-- 予約 -->
-
-        <a
-            href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
-            class="reservation"
-            target="_blank"
-        >
-             <span>ご予約はこちら</span>
-    <small>RESERVATION</small>
-        </a>
+    <div class="site-header">
 
 
-        <!-- 三本線 -->
+        <!-- 左上のロゴ -->
 
-        <button
-            class="menu-button"
-            onclick="openMenu()"
+        <img
+            src="images/logo.png"
+            alt="SORAのロゴ"
+            class="logo"
         >
 
-            ☰
 
-        </button>
+        <!-- 右上：予約＋三本線 -->
+
+        <div class="top-menu">
+
+
+            <!-- 予約 -->
+
+            <a
+                href="https://www.airbnb.jp/rooms/1693227146127960935?unique_share_id=e607aecd-bd02-41de-9335-cc84bdbd2808&viralityEntryPoint=1&s=76"
+                class="reservation"
+                target="_blank"
+            >
+                 <span>ご予約はこちら</span>
+        <small>RESERVATION</small>
+            </a>
+
+
+            <!-- 三本線 -->
+
+            <button
+                class="menu-button"
+                onclick="openMenu()"
+            >
+
+                ☰
+
+            </button>
+
+        </div>
 
     </div>
 
