@@ -651,13 +651,64 @@
         }
 
         // 順番を保つため、1つずつ順番に読み込む
-        pages.reduce(function (promise, url, index) {
+        var sectionsReady = pages.reduce(function (promise, url, index) {
 
             return promise.then(function () {
                 return loadSection(url, index);
             });
 
         }, Promise.resolve());
+
+        // =========================
+        // メニューを押したら、別ページへ飛ばずに
+        // 該当セクションまでスクロールする（スマホのみ）
+        // =========================
+
+        var scopeMap = {
+            "concept.html": "mobile-embed-0",
+            "room.html": "mobile-embed-1",
+            "amenities.html": "mobile-embed-2",
+            "access.html": "mobile-embed-3",
+            "contact.html": "mobile-embed-4"
+        };
+
+        document.querySelectorAll("#menu a").forEach(function (link) {
+
+            var href = link.getAttribute("href");
+
+            // TOP：ページ上部へスクロール
+            if (href === "index.html") {
+
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    closeMenu();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+
+                return;
+            }
+
+            // CONCEPT〜CONTACT：該当セクションへスクロール
+            if (scopeMap[href]) {
+
+                link.addEventListener("click", function (e) {
+
+                    e.preventDefault();
+                    closeMenu();
+
+                    sectionsReady.then(function () {
+
+                        var target = document.getElementById(scopeMap[href]);
+
+                        if (target) {
+                            target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                    });
+                });
+            }
+
+            // RESERVATION（外部リンク）はそのまま通常動作
+        });
 
     })();
 
