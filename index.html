@@ -166,7 +166,7 @@
 
             padding: 12px 20px;
 
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 40, 60, 0.75);
 
             border: 1px solid rgba(255, 255, 255, 0.6);
 
@@ -195,7 +195,7 @@
         /* 予約ボタンにマウスを乗せたとき */
 
         .reservation:hover {
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(0, 40, 60, 0.95);
         }
 
 
@@ -209,7 +209,7 @@
 
             border: none;
 
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(0, 40, 60, 0.75);
 
             color: white;
 
@@ -348,6 +348,12 @@
 
     .menu {
         width: 220px;
+    }
+
+    /* ようこそ画面をフルで見せてから
+       下にconcept以降を続ける */
+    #mobile-sections {
+        margin-top: 100vh;
     }
 
 }
@@ -607,6 +613,16 @@
                         if (styleEl.sheet) {
                             scopeRules(styleEl.sheet.cssRules, scopeId);
                         }
+                    }
+
+                    // roomページだけ、背景写真は不要なので消す
+                    if (url === "room.html") {
+
+                        var overrideStyle = document.createElement("style");
+                        overrideStyle.textContent =
+                            "#" + scopeId + " { background-image: none !important; background: #fff !important; }" +
+                            "#" + scopeId + "::before { content: none !important; }";
+                        document.head.appendChild(overrideStyle);
                     }
 
                     container.appendChild(wrapper);
