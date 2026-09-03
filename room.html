@@ -1094,6 +1094,52 @@
 
 
         /* =========================
+           スワイプで写真を切り替える
+        ========================= */
+
+        (function () {
+
+            const sliderEl = document.querySelector(".slider");
+
+            let startX = 0;
+            let startY = 0;
+
+            sliderEl.addEventListener("touchstart", function (e) {
+
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+
+            }, { passive: true });
+
+            sliderEl.addEventListener("touchend", function (e) {
+
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+
+                const diffX = endX - startX;
+                const diffY = endY - startY;
+
+                /* 縦スクロールと区別するため、
+                   横方向の動きが大きいときだけ反応 */
+
+                if (
+                    Math.abs(diffX) > 40 &&
+                    Math.abs(diffX) > Math.abs(diffY)
+                ) {
+
+                    if (diffX < 0) {
+                        changeSlide(1);
+                    } else {
+                        changeSlide(-1);
+                    }
+                }
+
+            }, { passive: true });
+
+        })();
+
+
+        /* =========================
            最初の写真を表示
         ========================= */
 
