@@ -463,6 +463,15 @@
     </div>
 
 
+    <!-- =========================
+         スマホだけ：この下に
+         CONCEPT〜CONTACTを
+         連結して表示する場所
+    ========================= -->
+
+    <div id="mobile-sections"></div>
+
+
     <script>
 
 
@@ -493,6 +502,140 @@
 
         }
 
+
+    </script>
+
+
+    <!-- =========================
+         スマホ版：他ページを
+         このページの下に連結する
+    ========================= -->
+
+    <script>
+
+    (function () {
+
+        // スマホ幅のときだけ実行
+        if (!window.matchMedia("(max-width: 800px)").matches) {
+            return;
+        }
+
+        var container = document.getElementById("mobile-sections");
+        if (!container) return;
+
+        // 連結するページ（この順番で下に並ぶ）
+        var pages = [
+            "concept.html",
+            "room.html",
+            "amenities.html",
+            "access.html",
+            "contact.html"
+        ];
+
+        // セレクタの先頭にIDを付けて、
+        // 他のセクションのCSSと衝突しないようにする
+        function scopeSelector(sel, scopeId) {
+
+            sel = sel.trim();
+
+            if (!sel) return sel;
+
+            if (sel === "*") {
+                return "#" + scopeId + ", #" + scopeId + " *";
+            }
+
+            if (/^(body|html)/.test(sel)) {
+                return sel.replace(/^(body|html)/, "#" + scopeId);
+            }
+
+            return "#" + scopeId + " " + sel;
+        }
+
+        function scopeRules(ruleList, scopeId) {
+
+            Array.prototype.forEach.call(ruleList, function (rule) {
+
+                if (rule.type === CSSRule.STYLE_RULE) {
+
+                    rule.selectorText = rule.selectorText
+                        .split(",")
+                        .map(function (s) {
+                            return scopeSelector(s, scopeId);
+                        })
+                        .join(", ");
+
+                } else if (rule.cssRules) {
+
+                    scopeRules(rule.cssRules, scopeId);
+                }
+
+            });
+        }
+
+        // 各ページを取得して、順番通りに連結する
+        function loadSection(url, index) {
+
+            return fetch(url)
+                .then(function (res) {
+                    return res.text();
+                })
+                .then(function (html) {
+
+                    var doc = new DOMParser().parseFromString(html, "text/html");
+
+                    // 重複するメニュー・ロゴ・戻るリンクは削除
+                    doc.querySelectorAll(
+                        "#menu, .menu-button, .top-menu, img.logo, footer, .back"
+                    ).forEach(function (el) {
+                        el.remove();
+                    });
+
+                    var scopeId = "mobile-embed-" + index;
+
+                    var wrapper = document.createElement("div");
+                    wrapper.id = scopeId;
+                    wrapper.innerHTML = doc.body.innerHTML;
+
+                    // CSSを衝突しないようスコープしてから反映
+                    var styleTag = doc.querySelector("style");
+                    if (styleTag) {
+
+                        var styleEl = document.createElement("style");
+                        styleEl.textContent = styleTag.textContent;
+                        document.head.appendChild(styleEl);
+
+                        if (styleEl.sheet) {
+                            scopeRules(styleEl.sheet.cssRules, scopeId);
+                        }
+                    }
+
+                    container.appendChild(wrapper);
+
+                    // そのページ独自のスクリプト（スライダー等）を実行
+                    var scriptTag = doc.querySelector("script");
+                    if (scriptTag) {
+
+                        var newScript = document.createElement("script");
+                        newScript.textContent = scriptTag.textContent;
+                        document.body.appendChild(newScript);
+                    }
+
+                })
+                .catch(function (err) {
+                    console.error("セクション読み込み失敗:", url, err);
+                });
+        }
+
+        // 順番を保つため、1つずつ順番に読み込む
+        pages.reduce(function (promise, url, index) {
+
+            return promise.then(function () {
+                return loadSection(url, index);
+            });
+
+        }, Promise.resolve());
+
+    })();
 
     </script>
 
