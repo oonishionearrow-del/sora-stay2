@@ -14,6 +14,28 @@
       box-sizing: border-box;
     }
 
+
+    /* =========================
+       セクションの区切り（波型）
+    ========================= */
+
+    .wave-divider {
+      width: 100%;
+      height: 70px;
+      line-height: 0;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 白 → ミント色（#f5fbfb）への区切り */
+    .wave-divider.to-mint {
+      background: #fff;
+    }
+
     /* =========================
        ページ全体
     ========================= */
@@ -812,6 +834,18 @@
   </section>
 
 
+  <!-- 区切り（波型） -->
+
+  <div class="wave-divider to-mint">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+      <path
+        d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z"
+        fill="#f5fbfb"
+      ></path>
+    </svg>
+  </div>
+
+
   <!-- =========================
        CONCEPT
   ========================= -->
@@ -945,6 +979,18 @@
     </div>
 
   </section>
+
+
+  <!-- 区切り（波型） -->
+
+  <div class="wave-divider to-mint">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+      <path
+        d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z"
+        fill="#f5fbfb"
+      ></path>
+    </svg>
+  </div>
 
 
   <!-- =========================
