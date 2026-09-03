@@ -350,6 +350,14 @@
         width: 220px;
     }
 
+    /* 背景写真をスクロールで流れる形にする
+       （スクロールしても付いてこないように） */
+    body::after,
+    body::before {
+        position: absolute;
+        height: 100vh;
+    }
+
     /* ようこそ画面をフルで見せてから
        下にconcept以降を続ける */
     #mobile-sections {
