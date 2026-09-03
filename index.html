@@ -25,70 +25,40 @@
 
         body {
             margin: 0;
-            min-height: 100vh;
-
-            background: #000;
 
             font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
 
             color: white;
-
-            position: relative;
         }
 
 
         /* =========================
            背景写真
-           写真だけじわーっと表示
+           （画面に張り付く特殊な表示ではなく、
+             concept.htmlなどと同じ、
+             普通に配置する確実な方式）
         ========================= */
 
-        body::after {
-            content: "";
-
-            position: fixed;
-
-            top: 0;
-            left: 0;
+        .hero-section {
+            position: relative;
 
             width: 100%;
-            height: 100%;
+            height: 100vh;
 
             background-image: url("images/main.jpg");
 
             background-size: cover;
 
             background-position: center;
-
-            opacity: 0;
-
-            animation: backgroundFade 4s ease forwards;
-
-            z-index: -2;
         }
 
 
-        @keyframes backgroundFade {
+        /* 写真を少し暗くする */
 
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-
-        /* =========================
-           背景を少し暗くする
-           最後はこの明るさで停止
-        ========================= */
-
-        body::before {
+        .hero-section::before {
             content: "";
 
-            position: fixed;
+            position: absolute;
 
             top: 0;
             left: 0;
@@ -97,8 +67,6 @@
             height: 100%;
 
             background: rgba(0, 0, 0, 0.25);
-
-            z-index: -1;
         }
 
 
@@ -352,28 +320,6 @@
         width: 220px;
     }
 
-    /* 背景写真をスクロールで流れる形にする
-       （スクロールしても付いてこないように） */
-    body::after,
-    body::before {
-        position: absolute;
-        height: 100vh;
-    }
-
-    /* スマホは端末によってフェード演出が
-       途中で止まることがあるため、
-       最初から表示する */
-    body::after {
-        opacity: 1;
-        animation: none;
-    }
-
-    /* ようこそ画面をフルで見せてから
-       下にconcept以降を続ける */
-    #mobile-sections {
-        margin-top: 100vh;
-    }
-
 }
     </style>
 
@@ -383,20 +329,28 @@
 <body>
 
 
-    <!-- 左上のロゴ -->
+    <!-- ようこそ画面（背景写真） -->
 
-    <img
-        src="images/logo.png"
-        alt="SORAのロゴ"
-        class="logo"
-    >
+    <div class="hero-section">
 
 
-    <!-- ようこそ -->
+        <!-- 左上のロゴ -->
 
-    <div class="welcome">
+        <img
+            src="images/logo.png"
+            alt="SORAのロゴ"
+            class="logo"
+        >
 
-        ようこそ SORA へ
+
+        <!-- ようこそ -->
+
+        <div class="welcome">
+
+            ようこそ SORA へ
+
+        </div>
+
 
     </div>
 
