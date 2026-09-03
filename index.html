@@ -4,9 +4,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="color-scheme" content="light only">
+
     <title>SORA</title>
 
     <style>
+
+        :root {
+            color-scheme: light only;
+        }
 
         * {
             box-sizing: border-box;
@@ -93,12 +99,6 @@
             background: rgba(0, 0, 0, 0.25);
 
             z-index: -1;
-        }
-
-
-        /* テスト用（普段は非表示） */
-        .test-photo {
-            display: none;
         }
 
 
@@ -374,19 +374,6 @@
         margin-top: 100vh;
     }
 
-    /* ▼テスト用：小さい画像を右上に表示 */
-    .test-photo {
-        display: block !important;
-        position: fixed;
-        top: 80px;
-        right: 20px;
-        width: 90px;
-        height: 90px;
-        object-fit: cover;
-        border: 3px solid red;
-        z-index: 999;
-    }
-
 }
     </style>
 
@@ -394,14 +381,6 @@
 
 
 <body>
-
-
-    <!-- テスト用：小さい画像（右上・赤枠） -->
-    <img
-        src="images/main.jpg"
-        alt=""
-        class="test-photo"
-    >
 
 
     <!-- 左上のロゴ -->
@@ -562,6 +541,11 @@
 
         // スマホ幅のときだけ実行
         if (!window.matchMedia("(max-width: 800px)").matches) {
+            return;
+        }
+
+        // ▼テスト用：URLに ?nomerge を付けると連結機能を止められる
+        if (location.search.indexOf("nomerge") !== -1) {
             return;
         }
 
