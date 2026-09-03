@@ -587,13 +587,20 @@
                         }
                     }
 
-                    // roomページだけ、背景写真は不要なので消す
+                    // roomページだけ、背景写真は不要なので
+                    // 水色の背景＋グレー文字にする
                     if (url === "room.html") {
 
                         var overrideStyle = document.createElement("style");
                         overrideStyle.textContent =
-                            "#" + scopeId + " { background-image: none !important; background: #fff !important; }" +
-                            "#" + scopeId + "::before { content: none !important; }";
+                            "#" + scopeId + " { background-image: none !important; background: #eaf6f8 !important; color: #666 !important; }" +
+                            "#" + scopeId + "::before { content: none !important; }" +
+                            "#" + scopeId + " .room-heading-inner { background: none !important; backdrop-filter: none !important; padding: 0 !important; }" +
+                            "#" + scopeId + " .room-heading .en { color: #56a9b7 !important; }" +
+                            "#" + scopeId + " .room-heading h2, #" + scopeId + " .room-heading p { color: #666 !important; text-shadow: none !important; }" +
+                            "#" + scopeId + " .room-desc { background: none !important; backdrop-filter: none !important; padding: 0 25px !important; color: #666 !important; text-shadow: none !important; }" +
+                            "#" + scopeId + " .dot { background: rgba(86, 169, 183, 0.35) !important; }" +
+                            "#" + scopeId + " .dot.active { background: #56a9b7 !important; }";
                         document.head.appendChild(overrideStyle);
                     }
 
