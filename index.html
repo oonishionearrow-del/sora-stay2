@@ -498,11 +498,6 @@
             return;
         }
 
-        // ▼テスト用：URLに ?nomerge を付けると連結機能を止められる
-        if (location.search.indexOf("nomerge") !== -1) {
-            return;
-        }
-
         var container = document.getElementById("mobile-sections");
         if (!container) return;
 
