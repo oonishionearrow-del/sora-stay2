@@ -314,6 +314,28 @@
 
 
     /* =========================
+       グループ・ファミリー写真
+       （2×2、トリミングせず縮小表示）
+    ========================= */
+
+    .stay-gallery {
+      max-width: 950px;
+      margin: 40px auto 0;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stay-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+
+    /* =========================
        ACCESS
     ========================= */
 
@@ -906,6 +928,20 @@
 
       </div>
 
+
+    </div>
+
+
+    <!-- =========================
+         グループ・ファミリー写真
+    ========================= -->
+
+    <div class="stay-gallery">
+
+      <img src="images/g1.jpg" alt="ご家族・グループでのご利用イメージ1">
+      <img src="images/g2.jpg" alt="ご家族・グループでのご利用イメージ2">
+      <img src="images/g3.jpg" alt="ご家族・グループでのご利用イメージ3">
+      <img src="images/g4.jpg" alt="ご家族・グループでのご利用イメージ4">
 
     </div>
 
