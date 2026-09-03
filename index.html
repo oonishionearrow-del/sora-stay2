@@ -53,9 +53,24 @@
 
             background-position: center;
 
-            opacity: 1;
+            opacity: 0;
+
+            animation: backgroundFade 4s ease forwards;
 
             z-index: -2;
+        }
+
+
+        @keyframes backgroundFade {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
         }
 
 
@@ -337,6 +352,14 @@
     body::before {
         position: absolute;
         height: 100vh;
+    }
+
+    /* スマホは端末によってフェード演出が
+       途中で止まることがあるため、
+       最初から表示する */
+    body::after {
+        opacity: 1;
+        animation: none;
     }
 
     /* ようこそ画面をフルで見せてから
