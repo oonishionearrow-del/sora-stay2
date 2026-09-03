@@ -19,6 +19,24 @@
     }
 
 
+    /* =========================
+       セクションの区切り（波型）
+    ========================= */
+
+    .wave-divider {
+      width: 100%;
+      height: 70px;
+      line-height: 0;
+      background: #fff;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+
     body {
 
       font-family:
@@ -961,6 +979,17 @@
 
   </section>
 
+
+  <!-- 区切り（波型） -->
+
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+      <path
+        d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z"
+        fill="#f5fbfb"
+      ></path>
+    </svg>
+  </div>
 
 
   <!-- =========================
