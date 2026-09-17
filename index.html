@@ -52,6 +52,23 @@
             background-position: center;
 
             overflow: hidden;
+
+            opacity: 0;
+
+            animation: heroFadeIn 4s ease forwards;
+        }
+
+
+        @keyframes heroFadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
         }
 
 
@@ -388,6 +405,14 @@
     /* スマホのトップだけ暗くする加工をなくす */
     .hero-section::before {
         content: none;
+    }
+
+    /* スマホは端末によってフェード演出が
+       途中で止まることがあるため、
+       最初から表示する */
+    .hero-section {
+        opacity: 1;
+        animation: none;
     }
 
 }
