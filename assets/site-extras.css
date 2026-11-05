@@ -1,0 +1,677 @@
+/* SORA 追加スタイル（動画・ギャラリー・写真の拡大表示）
+   全ページ共通。クラス名はすべて sx- から始まる。 */
+
+/* ---------- セクション共通（白いカード） ---------- */
+
+.sx-section {
+    box-sizing: border-box;
+    width: 92%;
+    max-width: 1100px;
+    margin: 70px auto 0;
+    padding: 56px 32px 48px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #3b5560;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 30, 45, 0.18);
+    text-align: center;
+    font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+
+.sx-head {
+    margin-bottom: 34px;
+}
+
+.sx-en {
+    font-size: 12px;
+    letter-spacing: 0.38em;
+    color: #56a9b7;
+}
+
+.sx-head h2 {
+    margin: 12px 0 0;
+    font-size: clamp(22px, 3.2vw, 30px);
+    font-weight: 300;
+    letter-spacing: 0.14em;
+    line-height: 1.5;
+    color: #2f4a53;
+}
+
+
+/* ---------- ROOM TOUR（縦型動画） ---------- */
+
+.sx-phone {
+    width: min(86%, 340px);
+    margin: 0 auto;
+    aspect-ratio: 9 / 16;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #0d2530;
+    box-shadow: 0 18px 40px rgba(0, 50, 70, 0.28);
+}
+
+.sx-phone video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #0d2530;
+}
+
+
+/* ---------- ギャラリー ---------- */
+
+.sx-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 28px;
+    padding: 0;
+}
+
+.sx-chip {
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    padding: 8px 18px;
+    border: 1px solid #56a9b7;
+    border-radius: 999px;
+    background: transparent;
+    color: #2f7f8d;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+}
+
+.sx-chip:hover {
+    background: rgba(86, 169, 183, 0.14);
+}
+
+.sx-chip.is-active {
+    background: #56a9b7;
+    color: #fff;
+}
+
+.sx-chip:focus-visible,
+.sx-item:focus-visible {
+    outline: 2px solid #2f7f8d;
+    outline-offset: 2px;
+}
+
+/* 横長の写真は1マス、縦長の写真(.is-tall)は縦に2マス分。
+   順番どおりに左から右へ並び、すき間は後ろの写真が埋める。 */
+
+.sx-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: min(176px, calc(16.2vw - 17.6px));
+    grid-auto-flow: dense;
+    gap: 12px;
+    text-align: left;
+}
+
+.sx-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #dfeef0;
+    cursor: zoom-in;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sx-item.is-tall {
+    grid-row: span 2;
+}
+
+.sx-item[hidden] {
+    display: none;
+}
+
+.sx-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+@media (hover: hover) {
+    .sx-item:hover img {
+        transform: scale(1.05);
+    }
+}
+
+
+/* ---------- 写真の拡大表示 ---------- */
+
+.sx-lb {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(4, 22, 30, 0.97);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.sx-lb[hidden] {
+    display: none;
+}
+
+.sx-lb.is-open {
+    opacity: 1;
+}
+
+.sx-lb figure {
+    margin: 0;
+    max-width: 92vw;
+    text-align: center;
+}
+
+.sx-lb img {
+    display: block;
+    max-width: 92vw;
+    max-height: 78vh;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+@supports (height: 100dvh) {
+    .sx-lb img {
+        max-height: 78dvh;
+    }
+}
+
+.sx-lb figcaption {
+    margin-top: 14px;
+    padding: 0 12px;
+    color: #e6f4f6;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+}
+
+.sx-lb button {
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sx-lb button:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.sx-lb button:focus-visible {
+    outline: 2px solid #8fe0ec;
+    outline-offset: 2px;
+}
+
+.sx-lb-close {
+    top: 16px;
+    right: 16px;
+}
+
+.sx-lb-prev {
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sx-lb-next {
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sx-lb-count {
+    position: absolute;
+    top: 26px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #bcd8dd;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    pointer-events: none;
+}
+
+html.sx-lock {
+    overflow: hidden;
+}
+
+/* 1枚だけの拡大（観光ガイドのチラシなど）：矢印と枚数は出さない */
+.sx-lb-open {
+    display: none;
+    margin-top: 10px;
+    color: #bfe7ee;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-decoration: underline;
+}
+
+.sx-lb.is-single .sx-lb-open {
+    display: inline-block;
+}
+
+.sx-lb.is-single .sx-lb-prev,
+.sx-lb.is-single .sx-lb-next,
+.sx-lb.is-single .sx-lb-count {
+    display: none;
+}
+
+/* タッチ端末は指で左右にスワイプするので矢印は出さない */
+@media (hover: none) and (pointer: coarse) {
+    .sx-lb-prev,
+    .sx-lb-next {
+        display: none;
+    }
+}
+
+
+/* ---------- タブレット・スマホ ---------- */
+
+@media (max-width: 1000px) {
+    .sx-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: calc(21.6vw - 20.7px);
+    }
+}
+
+@media (max-width: 800px) {
+
+    .sx-section {
+        margin-top: 44px;
+        padding: 40px 14px 34px;
+        border-radius: 12px;
+    }
+
+    .sx-head {
+        margin-bottom: 26px;
+    }
+
+    /* 動画は小さめにして、縦に長くなりすぎないようにする */
+    .sx-phone {
+        width: min(62%, 240px);
+    }
+
+    /* 写真は縦に並べず、横に1段。指で左右にスワイプして見る */
+    .sx-grid {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        margin-left: -14px;
+        margin-right: -14px;
+        padding: 0 14px 6px;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 14px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .sx-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sx-item {
+        flex: 0 0 auto;
+        width: min(68vw, 360px);
+        height: min(50vw, 264px);
+        border-radius: 6px;
+        scroll-snap-align: start;
+    }
+
+    .sx-item.is-tall {
+        width: min(38vw, 200px);
+    }
+
+    /* カテゴリのボタンは横にスクロールできる */
+    .sx-chips {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        margin-left: -14px;
+        margin-right: -14px;
+        padding: 2px 14px 6px;
+        scrollbar-width: none;
+    }
+
+    .sx-chips::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sx-chip {
+        flex: 0 0 auto;
+    }
+}
+
+/* ---------- 設備・アメニティ（写真の帯＋項目のタグ） ----------
+   PCは全部ひらいたまま。スマホは写真の帯をタップして開く。 */
+
+/* ※ AMENITIES など「* { margin: 0; padding: 0 }」を持つページは、スマホのトップで
+   連結されるとその指定が優先されるため、余白だけ !important を付けている。 */
+
+/* PC：写真(元の比率 3:2)と項目を左右に並べ、1つおきに左右を入れ替える */
+
+.sx-acc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 64px !important;
+}
+
+.sx-acc.is-rev {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.sx-acc.is-rev .sx-acc-head {
+    order: 2;
+}
+
+.sx-acc-head {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #cfe3e6;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: left;
+    font: inherit;
+    cursor: default;
+    pointer-events: none;
+}
+
+.sx-acc-head::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 35, 50, 0.62), rgba(0, 35, 50, 0.04) 70%);
+}
+
+.sx-acc-label {
+    position: absolute;
+    left: 24px;
+    bottom: 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+}
+
+.sx-acc-num {
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    opacity: 0.92;
+}
+
+.sx-acc-title {
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+.sx-acc-count {
+    position: absolute;
+    right: 24px;
+    bottom: 22px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    opacity: 0.92;
+}
+
+.sx-acc-btn {
+    display: none;
+}
+
+.sx-acc-body {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.sx-acc-body > div {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.sx-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 !important;
+}
+
+.sx-tag {
+    padding: 8px 16px !important;
+    border: 1px solid #d9e8ea;
+    border-radius: 999px;
+    background: #f9fcfc;
+    color: #3b5560;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+}
+
+.sx-acc-hint {
+    display: none;
+}
+
+/* AMENITIES の最後の帯（「ENJOY YOUR STAY」の背景を写真にする） */
+
+.sx-note-photo {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto 90px !important;
+    padding: 64px 28px !important;
+    border-radius: 14px;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(10, 105, 120, 0.52), rgba(10, 105, 120, 0.52)),
+        var(--sx-note-img) center / cover no-repeat !important;
+}
+
+.sx-note-photo,
+.sx-note-photo .note-en,
+.sx-note-photo p {
+    color: #fff !important;
+    text-align: center !important;
+    text-shadow: 0 2px 10px rgba(0, 30, 45, 0.45);
+}
+
+@media (max-width: 800px) {
+
+    .sx-acc,
+    .sx-acc.is-rev {
+        display: block;
+        margin-bottom: 14px !important;
+    }
+
+    .sx-acc.is-rev .sx-acc-head {
+        order: 0;
+    }
+
+    .sx-acc-head {
+        border-radius: 8px;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: transform 0.15s;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .sx-acc-head:active {
+        transform: scale(0.99);
+    }
+
+    .sx-acc-head:focus-visible {
+        outline: 2px solid #56a9b7;
+        outline-offset: 2px;
+    }
+
+    .sx-acc-label {
+        left: 14px;
+        bottom: 14px;
+        gap: 10px;
+    }
+
+    .sx-acc-title {
+        font-size: 20px;
+    }
+
+    .sx-acc-count {
+        display: none;
+    }
+
+    /* タップできると分かるように、白い丸いボタンを写真の上に出す */
+    .sx-acc-btn {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 8px 6px 13px !important;
+        border-radius: 999px;
+        background: #fff;
+        color: #1f6f7e;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .sx-acc-btn .t-open {
+        display: none;
+    }
+
+    .sx-acc.is-open .sx-acc-btn .t-open {
+        display: inline;
+    }
+
+    .sx-acc.is-open .sx-acc-btn .t-closed {
+        display: none;
+    }
+
+    .sx-acc-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #56a9b7;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1;
+        transition: transform 0.25s;
+    }
+
+    .sx-acc.is-open .sx-acc-icon {
+        transform: rotate(45deg);
+    }
+
+    .sx-acc-body {
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s ease;
+    }
+
+    .sx-acc.is-open .sx-acc-body {
+        grid-template-rows: 1fr;
+    }
+
+    .sx-tags {
+        gap: 6px;
+        padding: 12px 2px 4px !important;
+    }
+
+    .sx-tag {
+        padding: 5px 11px !important;
+        font-size: 12px;
+    }
+
+    .sx-acc-hint {
+        display: block;
+        margin: -22px 0 18px !important;
+        text-align: center;
+        color: #56a9b7;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sx-item img,
+    .sx-lb,
+    .sx-chip,
+    .sx-acc-body,
+    .sx-acc-icon,
+    .sx-acc-head {
+        transition: none;
+    }
+}
+
+
+/* ---------- PC：TOP以外のページの、ロゴを置く上の帯 ----------
+   写真と重なってロゴが見えなくなるのを避ける。スマホでは使わない。 */
+
+.sx-bar {
+    display: none;
+}
+
+@media (min-width: 801px) {
+
+    body.sx-has-bar {
+        position: relative;
+        padding-top: 0 !important;
+    }
+
+    .sx-bar {
+        display: block;
+        width: 100%;
+        height: 80px;
+        background: rgba(0, 40, 60, 0.92);
+    }
+
+    /* ロゴ画像はまわりに透明な余白が多い。余白を帯の外にはみ出させて、
+       ロゴの文字の部分が帯いっぱいに見える大きさにする */
+    body.sx-has-bar .logo {
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        width: auto;
+        height: 100px;
+        z-index: 20;
+    }
+
+    /* 右上のメニューボタンを、帯の真ん中にそろえる */
+    body.sx-has-bar .menu-button,
+    body.sx-has-bar .top-menu {
+        top: 17px;
+    }
+}

@@ -178,6 +178,19 @@
 
 
         /* =========================
+           左上のロゴ
+        ========================= */
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 200px;
+            z-index: 20;
+        }
+
+
+        /* =========================
            HERO
         ========================= */
 
@@ -198,7 +211,7 @@
                     rgba(0,0,0,0.05)
                 ),
 
-                url("images/contact.jpg");
+                url("images/contact/contact.jpg");
 
             background-size: cover;
 
@@ -569,6 +582,13 @@
         @media (max-width: 800px) {
 
 
+            .logo {
+                width: 140px;
+                top: 20px;
+                left: 20px;
+            }
+
+
             .menu-button {
 
                 top: 20px;
@@ -684,10 +704,28 @@
 
     </style>
 
+  <link rel="stylesheet" href="assets/site-extras.css">
+
 </head>
 
 
-<body>
+<body class="sx-has-bar">
+
+
+  <!-- PC：ロゴを置く上の帯（スマホでは表示しない） -->
+
+  <div class="sx-bar" aria-hidden="true"></div>
+
+
+    <!-- =========================
+         左上のロゴ
+    ========================= -->
+
+    <img
+        src="images/common/logo.png"
+        alt="SORAのロゴ"
+        class="logo"
+    >
 
 
     <!-- =========================

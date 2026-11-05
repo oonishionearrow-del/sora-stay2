@@ -161,12 +161,27 @@
 
 
     /* =========================
+       左上のロゴ
+    ========================= */
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      width: 200px;
+      z-index: 20;
+    }
+
+
+    /* =========================
        HERO
     ========================= */
 
     .hero {
       width: 86%;
-      height: 65vh;
+      /* 横に長い画面では写真の枠が細長くなって人物の頭が切れるため、
+         横幅に合わせて高さを確保する（高い画面では今までどおり 65vh） */
+      height: min(max(65vh, 41vw), 88vh);
       min-height: 500px;
       margin: 50px auto 0;
 
@@ -175,10 +190,16 @@
           rgba(0,0,0,0.05),
           rgba(0,0,0,0.05)
         ),
-        url("images/concept1.jpg");
+        linear-gradient(
+          to top,
+          rgba(0,0,0,0.22),
+          rgba(0,0,0,0) 42%
+        ),
+        url("images/concept/hero.jpg");
 
-      background-size: cover;
-      background-position: center;
+      /* 写真を少し大きくして左に寄せ、人物を文字から離す */
+      background-size: cover, cover, 118% auto;
+      background-position: center, center, 0% 55%;
       position: relative;
     }
 
@@ -253,6 +274,33 @@
       text-align: center;
     }
 
+    /* PC：夕焼けの写真（縦長のまま）を左、文章を右に並べる */
+
+    .concept-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .concept-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 14px 34px rgba(0, 50, 70, 0.22);
+    }
+
+    .concept-body .concept-en,
+    .concept-body h2 {
+      text-align: left;
+    }
+
     .concept-en {
       font-size: 12px;
       letter-spacing: 0.35em;
@@ -269,7 +317,7 @@
 
     .concept p {
       max-width: 620px;
-      margin: 0 auto;
+      margin: 0;
       font-size: 14px;
       line-height: 2.3;
       color: #666;
@@ -344,7 +392,7 @@
 
     .stay-gallery {
       max-width: 950px;
-      margin: 40px auto 0;
+      margin: 0 auto 50px;
 
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -581,6 +629,12 @@
 
     @media (max-width: 768px) {
 
+      .logo {
+        width: 140px;
+        top: 20px;
+        left: 20px;
+      }
+
       .top-menu {
         top: 20px;
         right: 20px;
@@ -604,8 +658,9 @@
         min-height: 0;
         margin: 30px auto 0;
 
-        background-size: cover;
-        background-position: center;
+        /* 人物を文字から離すため、写真を少し大きくして左に寄せる */
+        background-size: cover, cover, 128% auto;
+        background-position: center, center, 0% 70%;
       }
 
       .hero-content {
@@ -640,8 +695,61 @@
         display: none;
       }
 
+      /* スマホ：夕焼けの写真を文章の背景にして、白い文字を重ねる
+         （写真を縦に足さないので、長さは増えない） */
+
       .concept {
+        position: relative;
+        overflow: hidden;
         padding: 60px 25px;
+        background: #2a4a5c;
+      }
+
+      .concept::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: linear-gradient(
+          rgba(15, 35, 50, 0.24),
+          rgba(15, 35, 50, 0.6)
+        );
+      }
+
+      .concept-inner {
+        display: block;
+        max-width: none;
+      }
+
+      .concept-photo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .concept-body {
+        position: relative;
+        z-index: 1;
+      }
+
+      .concept-body .concept-en {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .concept-body h2 {
+        text-align: center;
+        color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
       }
 
       .concept h2 {
@@ -654,6 +762,8 @@
         text-align: left !important;
         max-width: 100%;
         margin: 0 auto;
+        color: #fff;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
       }
 
       .stay {
@@ -702,9 +812,27 @@
 
   </style>
 
+  <link rel="stylesheet" href="assets/site-extras.css">
+
 </head>
 
-<body>
+<body class="sx-has-bar">
+
+
+  <!-- PC：ロゴを置く上の帯（スマホでは表示しない） -->
+
+  <div class="sx-bar" aria-hidden="true"></div>
+
+
+  <!-- =========================
+       左上のロゴ
+  ========================= -->
+
+  <img
+    src="images/common/logo.png"
+    alt="SORAのロゴ"
+    class="logo"
+  >
 
 
   <!-- =========================
@@ -828,7 +956,7 @@
 
 
     <img
-      src="images/concept.jpg"
+      src="images/concept/g1.jpg"
       alt="お部屋"
       class="intro-image"
     >
@@ -853,6 +981,20 @@
   ========================= -->
 
   <section class="concept">
+
+   <div class="concept-inner">
+
+    <img
+      class="concept-photo"
+      src="images/concept/sunset.jpg"
+      alt="ベランダから見える夕焼け空とテラスチェア"
+      width="1086"
+      height="1448"
+      loading="lazy"
+      decoding="async"
+    >
+
+    <div class="concept-body">
 
     <div class="concept-en">
       OUR CONCEPT
@@ -882,21 +1024,11 @@
       大阪旅をお楽しみください。
     </p>
 
+    </div>
+
+   </div>
+
   </section>
-
-
-  <!-- =========================
-       グループ・ファミリー写真
-  ========================= -->
-
-  <div class="stay-gallery">
-
-    <img src="images/g1.jpg" alt="ご家族・グループでのご利用イメージ1">
-    <img src="images/g2.jpg" alt="ご家族・グループでのご利用イメージ2">
-    <img src="images/g3.jpg" alt="ご家族・グループでのご利用イメージ3">
-    <img src="images/g4.jpg" alt="ご家族・グループでのご利用イメージ4">
-
-  </div>
 
 
   <!-- =========================
@@ -981,6 +1113,20 @@
     </div>
 
   </section>
+
+
+<!-- =========================
+       グループ・ファミリー写真
+  ========================= -->
+
+  <div class="stay-gallery">
+
+    <img src="images/concept/g1.jpg" alt="ご家族・グループでのご利用イメージ1">
+    <img src="images/concept/g2.jpg" alt="ご家族・グループでのご利用イメージ2">
+    <img src="images/concept/g3.jpg" alt="ご家族・グループでのご利用イメージ3">
+    <img src="images/concept/g4.jpg" alt="ご家族・グループでのご利用イメージ4">
+
+  </div>
 
 
   <!-- 区切り（波型） -->

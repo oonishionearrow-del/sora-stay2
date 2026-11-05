@@ -31,7 +31,7 @@
             min-height: 100vh;
 
             background-image:
-                url("images/room.jpg");
+                url("images/room/room.jpg");
 
             background-size: cover;
 
@@ -45,6 +45,8 @@
             color: white;
 
             padding-bottom: 50px;
+
+            padding-top: 80px;
         }
 
 
@@ -227,263 +229,6 @@
 
 
         /* =========================
-           ROOM 見出し
-        ========================= */
-
-        .room-heading {
-
-            text-align: center;
-
-            margin-top: 150px;
-
-            padding: 0 20px;
-        }
-
-
-        .room-heading-inner {
-
-            display: inline-block;
-
-            padding: 22px 40px;
-
-            background:
-                rgba(0, 30, 45, 0.4);
-
-            border-radius: 10px;
-
-            backdrop-filter: blur(4px);
-        }
-
-
-        .room-heading .en {
-
-            font-size: 13px;
-
-            letter-spacing: 0.4em;
-
-            color: #8fe0ec;
-        }
-
-
-        .room-heading h2 {
-
-            margin-top: 15px;
-
-            font-size: clamp(32px, 6vw, 52px);
-
-            font-weight: 300;
-
-            letter-spacing: 0.15em;
-
-            text-shadow:
-                0 2px 12px rgba(0, 0, 0, 0.45);
-        }
-
-
-        .room-heading p {
-
-            margin-top: 14px;
-
-            font-size: 13px;
-
-            letter-spacing: 0.08em;
-
-            line-height: 1.9;
-
-            text-shadow:
-                0 1px 6px rgba(0, 0, 0, 0.35);
-        }
-
-
-        /* =========================
-           スライド
-        ========================= */
-
-        .slider {
-
-            position: relative;
-
-            width: 90%;
-
-            max-width: 1100px;
-
-            margin: 60px auto 0;
-
-            text-align: center;
-        }
-
-
-        /* =========================
-           ROOM 説明文
-        ========================= */
-
-        .room-desc {
-
-            max-width: 640px;
-
-            margin: 55px auto 0;
-
-            padding: 22px 30px;
-
-            text-align: center;
-
-            font-size: 14px;
-
-            line-height: 2.2;
-
-            letter-spacing: 0.03em;
-
-            background:
-                rgba(0, 30, 45, 0.4);
-
-            border-radius: 10px;
-
-            backdrop-filter: blur(4px);
-        }
-
-
-        /* =========================
-           写真
-        ========================= */
-
-        .slider img {
-
-            width: 100%;
-
-            height: 600px;
-
-            object-fit: cover;
-
-            border-radius: 8px;
-
-            box-shadow:
-                0 15px 40px
-                rgba(0, 0, 0, 0.4);
-        }
-
-
-        /* =========================
-           動画
-        ========================= */
-
-        .slider video {
-
-            width: 100%;
-
-            height: 600px;
-
-            object-fit: contain;
-
-            background:
-                rgba(0, 0, 0, 0.3);
-
-            border-radius: 8px;
-
-            box-shadow:
-                0 15px 40px
-                rgba(0, 0, 0, 0.4);
-        }
-
-
-        /* =========================
-           左右の矢印
-        ========================= */
-
-        .arrow {
-
-            position: absolute;
-
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            width: 45px;
-
-            height: 45px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background:
-                rgba(0, 0, 0, 0.4);
-
-            color: white;
-
-            font-size: 28px;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
-            z-index: 5;
-        }
-
-
-        .arrow:hover {
-
-            background:
-                rgba(0, 0, 0, 0.7);
-        }
-
-
-        /* =========================
-           左の矢印
-        ========================= */
-
-        .prev {
-
-            left: -60px;
-        }
-
-
-        /* =========================
-           右の矢印
-        ========================= */
-
-        .next {
-
-            right: -60px;
-        }
-
-
-        /* =========================
-           ドット
-        ========================= */
-
-        .dots {
-
-            margin-top: 18px;
-        }
-
-
-        .dot {
-
-            display: inline-block;
-
-            width: 9px;
-
-            height: 9px;
-
-            margin: 0 5px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(255, 255, 255, 0.5);
-
-            cursor: pointer;
-        }
-
-
-        .dot.active {
-
-            background: white;
-        }
-
-
-        /* =========================
            TOPへ戻る
         ========================= */
 
@@ -532,7 +277,14 @@
         @media (max-width: 800px) {
 
 
-            .logo {
+            
+
+            body {
+
+                padding-top: 56px;
+            }
+
+.logo {
 
                 width: 180px;
 
@@ -584,75 +336,21 @@
                 right: 25px;
             }
 
-
-            .room-heading {
-
-                margin-top: 120px;
-            }
-
-
-            .room-heading-inner {
-
-                padding: 18px 25px;
-            }
-
-
-            .room-heading h2 {
-
-                font-size: 30px;
-            }
-
-
-            .room-heading p {
-
-                font-size: 12px;
-            }
-
-
-            .slider {
-
-                width: 92%;
-
-                max-width: none;
-
-                margin-top: 35px;
-            }
-
-
-            .slider img,
-            .slider video {
-
-                height: 320px;
-            }
-
-
-            .room-desc {
-
-                margin-top: 40px;
-
-                font-size: 13px;
-            }
-
-
-            .prev {
-
-                left: -10px;
-            }
-
-
-            .next {
-
-                right: -10px;
-            }
-
         }
 
     </style>
 
+    <link rel="stylesheet" href="assets/site-extras.css">
+
 </head>
 
 
-<body>
+<body class="sx-has-bar">
+
+
+  <!-- PC：ロゴを置く上の帯（スマホでは表示しない） -->
+
+  <div class="sx-bar" aria-hidden="true"></div>
 
 
     <!-- =========================
@@ -660,7 +358,7 @@
     ========================= -->
 
     <img
-        src="images/logo.png"
+        src="images/common/logo.png"
         alt="SORAのロゴ"
         class="logo"
     >
@@ -746,111 +444,138 @@
 
 
     <!-- =========================
-         ROOM 見出し
+         ROOM TOUR（動画）
     ========================= -->
 
-    <div class="room-heading">
+    <section class="sx-section sx-tour" aria-labelledby="sx-tour-title">
 
-        <div class="room-heading-inner">
-
-            <div class="en">
-                ROOM
-            </div>
-
-            <h2>
-                お部屋紹介
-            </h2>
-
-            <p>
-                ビーチリゾートのような、非日常のくつろぎ空間。
-            </p>
-
+        <div class="sx-head">
+            <div class="sx-en">ROOM TOUR</div>
+            <h2 id="sx-tour-title">動画でお部屋をご紹介</h2>
         </div>
 
-    </div>
+        <div class="sx-phone">
+            <video controls playsinline preload="none" poster="images/video/room-tour-poster.jpg" width="720" height="1280" aria-label="SORAのお部屋を案内する動画">
+                <source src="images/video/room-tour.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </section>
 
 
     <!-- =========================
-         スライド
+         GALLERY（写真）
     ========================= -->
 
-    <div class="slider">
+    <section class="sx-section sx-gallery" aria-labelledby="sx-gallery-title">
 
-
-        <!-- 写真・動画を表示する場所 -->
-
-        <div id="slideContent"></div>
-
-
-        <!-- 左矢印 -->
-
-        <button
-            class="arrow prev"
-            onclick="changeSlide(-1)"
-        >
-
-            ‹
-
-        </button>
-
-
-        <!-- 右矢印 -->
-
-        <button
-            class="arrow next"
-            onclick="changeSlide(1)"
-        >
-
-            ›
-
-        </button>
-
-
-        <!-- ドット -->
-
-        <div class="dots">
-
-            <span
-                class="dot active"
-                onclick="showSlide(0)"
-            ></span>
-
-            <span
-                class="dot"
-                onclick="showSlide(1)"
-            ></span>
-
-            <span
-                class="dot"
-                onclick="showSlide(2)"
-            ></span>
-
-            <span
-                class="dot"
-                onclick="showSlide(3)"
-            ></span>
-
-            <span
-                class="dot"
-                onclick="showSlide(4)"
-            ></span>
-
+        <div class="sx-head">
+            <div class="sx-en">GALLERY</div>
+            <h2 id="sx-gallery-title">写真ギャラリー</h2>
         </div>
 
-    </div>
+        <div class="sx-chips">
+            <button type="button" class="sx-chip is-active" data-sx-filter="all" aria-pressed="true">すべて</button>
+            <button type="button" class="sx-chip" data-sx-filter="room" aria-pressed="false">客室</button>
+            <button type="button" class="sx-chip" data-sx-filter="kitchen" aria-pressed="false">キッチン・食器</button>
+            <button type="button" class="sx-chip" data-sx-filter="bath" aria-pressed="false">お風呂・洗面</button>
+            <button type="button" class="sx-chip" data-sx-filter="detail" aria-pressed="false">小物</button>
+        </div>
 
+        <div class="sx-grid">
+            <a class="sx-item" href="images/gallery/room/room-01.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-01.jpg" alt="壁にプロジェクターの映像が映るリビング。ラタン調の椅子とローテーブル" width="640" height="480" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item is-tall" href="images/gallery/room/room-02.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-02.jpg" alt="ベッドの向こうにリビングが見える、ターコイズ基調の客室" width="640" height="853" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-03.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-03.jpg" alt="ソファで本を読んでくつろぐ女性。ヒトデ柄のクッションと観葉植物" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-05.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-05.jpg" alt="ソファでおしゃべりを楽しむ2人。観葉植物とクッション" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-06.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-06.jpg" alt="ソファでくつろぐ2人。壁にはメッセージ入りのウォールアート" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-07.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-07.jpg" alt="ペンダントライトが下がるベッドスペースでくつろぐ2人" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-08.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-08.jpg" alt="グリーンのソファで笑顔で話す2人" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-09.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-09.jpg" alt="ウォールアートが並ぶ広い客室でくつろぐ2人" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-10.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-10.jpg" alt="ターコイズのクッションとグラスが並ぶベッド" width="640" height="426" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-11.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-11.jpg" alt="ブルーのカーテンから光が入るベッドルーム" width="640" height="481" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-12.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-12.jpg" alt="大きな鏡のあるリビング。グリーンのソファと観葉植物" width="640" height="426" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-13.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-13.jpg" alt="ヤシの葉柄のクッションを置いたベッドと、ラタンチェアのある客室" width="640" height="474" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/room/room-14.jpg" data-cat="room">
+                <img src="images/gallery/thumb/room-14.jpg" alt="ヤシの葉と小物のトレイが置かれたベッド" width="640" height="426" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/kitchen/kitchen-01.jpg" data-cat="kitchen">
+                <img src="images/gallery/thumb/kitchen-01.jpg" alt="透明なケースに収められたカラフルなスプーンとフォーク" width="640" height="480" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/kitchen/kitchen-02.jpg" data-cat="kitchen">
+                <img src="images/gallery/thumb/kitchen-02.jpg" alt="透明なケースに収められた箸とカトラリー" width="640" height="480" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/kitchen/kitchen-03.jpg" data-cat="kitchen">
+                <img src="images/gallery/thumb/kitchen-03.jpg" alt="水色のお皿とヒトデ形の小皿" width="640" height="480" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/kitchen/kitchen-04.jpg" data-cat="kitchen">
+                <img src="images/gallery/thumb/kitchen-04.jpg" alt="ホットプレートとたこ焼きプレートなどの調理器具" width="640" height="691" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item is-tall" href="images/gallery/kitchen/kitchen-05.jpg" data-cat="kitchen">
+                <img src="images/gallery/thumb/kitchen-05.jpg" alt="フライパンと鍋のセット" width="640" height="747" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/bath/bath-02.jpg" data-cat="bath">
+                <img src="images/gallery/thumb/bath-02.jpg" alt="洗面所に置かれたガラスのポンプボトル" width="640" height="480" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item is-tall" href="images/gallery/bath/bath-03.jpg" data-cat="bath">
+                <img src="images/gallery/thumb/bath-03.jpg" alt="ドアに掛けられたサーフボード型のバスルーム看板" width="640" height="960" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/bath/bath-04.jpg" data-cat="bath">
+                <img src="images/gallery/thumb/bath-04.jpg" alt="「WASH YOUR HANDS」「BRUSH YOUR TEETH」と書かれたサーフボード型の看板" width="640" height="514" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/bath/bath-05.jpg" data-cat="bath">
+                <img src="images/gallery/thumb/bath-05.jpg" alt="洗面台とバスタブがある明るい水まわり" width="640" height="496" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item is-tall" href="images/gallery/detail/detail-01.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-01.jpg" alt="ウォールアートの前に下がる水色のペンダントライト" width="640" height="960" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/detail/detail-02.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-02.jpg" alt="編み込みシェードのペンダントライト" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/detail/detail-03.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-03.jpg" alt="ブルーの幾何柄クッションを置いたベッド" width="640" height="427" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/detail/detail-06.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-06.jpg" alt="ヤシの葉のプリントを入れた額" width="640" height="680" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/detail/detail-07.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-07.jpg" alt="水の入ったグラスのクローズアップ" width="640" height="421" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item" href="images/gallery/detail/detail-08.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-08.jpg" alt="ヤシの葉と青いクッション、重ねた本" width="640" height="442" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item is-tall" href="images/gallery/detail/detail-09.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-09.jpg" alt="ヒトデの飾りとヤシの葉、ターコイズのクッション" width="640" height="871" loading="lazy" decoding="async">
+            </a>
+            <a class="sx-item is-tall" href="images/gallery/detail/detail-11.jpg" data-cat="detail">
+                <img src="images/gallery/thumb/detail-11.jpg" alt="観葉植物とカゴ、白いサイドテーブルの小さなコーナー" width="640" height="853" loading="lazy" decoding="async">
+            </a>
+        </div>
 
-    <!-- =========================
-         ROOM 説明文
-    ========================= -->
-
-    <p class="room-desc">
-
-        ターコイズとホワイトを基調にコーディネートした、
-        海辺のリゾートホテルのような客室。<br>
-        最大6名様まで宿泊可能で、ご家族やグループ旅行にもおすすめです。
-
-    </p>
+    </section>
 
 
     <!-- =========================
@@ -895,260 +620,10 @@
                 .classList
                 .remove("open");
 
-        }
+        }</script>
 
 
-        /* =========================
-           写真4枚＋動画1本
-        ========================= */
-
-        const slides = [
-
-            {
-                type: "image",
-                src: "images/room1.jpg"
-            },
-
-            {
-                type: "image",
-                src: "images/room2.jpg"
-            },
-
-            {
-                type: "image",
-                src: "images/room3.jpg"
-            },
-
-            {
-                type: "image",
-                src: "images/room4.jpg"
-            },
-
-            {
-                type: "video",
-                src: "images/room.mp4"
-            }
-
-        ];
-
-
-        /* =========================
-           現在のスライド
-        ========================= */
-
-        let currentSlide = 0;
-
-
-        /* =========================
-           スライドを表示
-        ========================= */
-
-        function showSlide(number) {
-
-            currentSlide = number;
-
-
-            const content =
-                document.getElementById(
-                    "slideContent"
-                );
-
-
-            /* 中身を空にする */
-
-            content.innerHTML = "";
-
-
-            /* =========================
-               写真
-            ========================= */
-
-            if (
-                slides[currentSlide].type
-                === "image"
-            ) {
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    slides[currentSlide].src;
-
-
-                image.alt =
-                    "SORAのお部屋";
-
-
-                content.appendChild(image);
-
-            }
-
-
-            /* =========================
-               動画
-            ========================= */
-
-            if (
-                slides[currentSlide].type
-                === "video"
-            ) {
-
-                const video =
-                    document.createElement(
-                        "video"
-                    );
-
-
-                video.src =
-                    slides[currentSlide].src;
-
-
-                /* 自動再生 */
-
-                video.autoplay = true;
-
-
-                /* ミュート */
-
-                video.muted = true;
-
-
-                /* スマホ対応 */
-
-                video.playsInline = true;
-
-
-                /* 再生バー */
-
-                video.controls = true;
-
-
-                content.appendChild(video);
-
-            }
-
-
-            /* =========================
-               ドット変更
-            ========================= */
-
-            const dots =
-                document.querySelectorAll(
-                    ".dot"
-                );
-
-
-            dots.forEach(
-                function(dot, index) {
-
-                    dot.classList.toggle(
-                        "active",
-                        index === currentSlide
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =========================
-           左右の矢印
-        ========================= */
-
-        function changeSlide(direction) {
-
-            currentSlide += direction;
-
-
-            /* 最後 → 最初 */
-
-            if (
-                currentSlide >=
-                slides.length
-            ) {
-
-                currentSlide = 0;
-
-            }
-
-
-            /* 最初 → 最後 */
-
-            if (
-                currentSlide < 0
-            ) {
-
-                currentSlide =
-                    slides.length - 1;
-
-            }
-
-
-            showSlide(currentSlide);
-
-        }
-
-
-        /* =========================
-           スワイプで写真を切り替える
-        ========================= */
-
-        (function () {
-
-            const sliderEl = document.querySelector(".slider");
-
-            let startX = 0;
-            let startY = 0;
-
-            sliderEl.addEventListener("touchstart", function (e) {
-
-                startX = e.touches[0].clientX;
-                startY = e.touches[0].clientY;
-
-            }, { passive: true });
-
-            sliderEl.addEventListener("touchend", function (e) {
-
-                const endX = e.changedTouches[0].clientX;
-                const endY = e.changedTouches[0].clientY;
-
-                const diffX = endX - startX;
-                const diffY = endY - startY;
-
-                /* 縦スクロールと区別するため、
-                   横方向の動きが大きいときだけ反応 */
-
-                if (
-                    Math.abs(diffX) > 40 &&
-                    Math.abs(diffX) > Math.abs(diffY)
-                ) {
-
-                    if (diffX < 0) {
-                        changeSlide(1);
-                    } else {
-                        changeSlide(-1);
-                    }
-                }
-
-            }, { passive: true });
-
-        })();
-
-
-        /* =========================
-           最初の写真を表示
-        ========================= */
-
-        showSlide(0);
-
-
-    </script>
-
-
+    <script src="assets/site-extras.js" defer></script>
 </body>
 
 </html>

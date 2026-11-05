@@ -22,7 +22,10 @@
        セクションの区切り（波型）
     ========================= */
 
+    /* 最後の「ENJOY YOUR STAY」を写真のカードにしたため、
+       ミント色の背景につなぐための波型は使わない */
     .wave-divider {
+      display: none;
       width: 100%;
       height: 70px;
       line-height: 0;
@@ -225,7 +228,7 @@
           rgba(0,0,0,0.05)
         ),
 
-        url("images/amenities.jpg");
+        url("images/amenities/amenities.jpg");
 
       background-size: cover;
 
@@ -370,80 +373,6 @@
       font-weight: 300;
 
       letter-spacing: 0.15em;
-    }
-
-
-    /* =========================
-       カテゴリー
-    ========================= */
-
-    .amenity-category {
-
-      margin-bottom: 70px;
-    }
-
-
-    .category-title {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 15px;
-
-      margin-bottom: 25px;
-    }
-
-
-    .category-number {
-
-      font-size: 11px;
-
-      letter-spacing: 0.2em;
-
-      color: #56a9b7;
-    }
-
-
-    .category-title h3 {
-
-      font-size: 20px;
-
-      font-weight: 400;
-
-      letter-spacing: 0.1em;
-    }
-
-
-    /* =========================
-       アイテム
-    ========================= */
-
-    .amenity-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 12px;
-    }
-
-
-    .amenity-item {
-
-      padding: 18px 15px;
-
-      border:
-        1px solid #e3eeee;
-
-      background: #fff;
-
-      text-align: center;
-
-      font-size: 13px;
-
-      color: #555;
     }
 
 
@@ -650,51 +579,6 @@
       }
 
 
-      .amenity-grid {
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 8px;
-
-        border:
-          1px solid #e3eeee;
-
-        padding: 15px;
-      }
-
-
-      .amenity-item {
-
-        border: none;
-
-        background: #f9fcfc;
-
-        border-radius: 4px;
-
-        padding: 12px 4px;
-
-        text-align: center;
-
-        font-size: 10px;
-
-        line-height: 1.4;
-
-        white-space: nowrap;
-
-        overflow: hidden;
-
-        text-overflow: ellipsis;
-      }
-
-
-      .amenity-category {
-
-        margin-bottom: 35px;
-      }
-
-
       .note {
 
         margin-bottom: 75px;
@@ -712,10 +596,17 @@
 
   </style>
 
+  <link rel="stylesheet" href="assets/site-extras.css">
+
 </head>
 
 
-<body>
+<body class="sx-has-bar">
+
+
+  <!-- PC：ロゴを置く上の帯（スマホでは表示しない） -->
+
+  <div class="sx-bar" aria-hidden="true"></div>
 
 
   <!-- =========================
@@ -723,7 +614,7 @@
   ========================= -->
 
   <img
-    src="images/logo.png"
+    src="images/common/logo.png"
     alt="SORAのロゴ"
     class="logo"
   >
@@ -872,280 +763,150 @@
 
 
 
+    
+    <p class="sx-acc-hint">写真をタップすると、設備の一覧が開きます</p>
+
+
     <!-- =========================
          お部屋
     ========================= -->
 
-    <div class="amenity-category">
+    <div class="sx-acc is-open">
 
-      <div class="category-title">
+      <button type="button" class="sx-acc-head" aria-expanded="true" aria-controls="sx-acc-1" style="background-image: url('images/amenities/cat-room.jpg')">
+        <span class="sx-acc-label">
+          <span class="sx-acc-num">01</span>
+          <span class="sx-acc-title">お部屋</span>
+        </span>
+        <span class="sx-acc-count">11点</span>
+        <span class="sx-acc-btn"><span class="t-closed">一覧を見る</span><span class="t-open">閉じる</span><span class="sx-acc-icon" aria-hidden="true">+</span></span>
+      </button>
 
-        <div class="category-number">
-          01
+      <div class="sx-acc-body" id="sx-acc-1">
+        <div>
+          <div class="sx-tags">
+            <span class="sx-tag">シングルベッド ×4</span>
+            <span class="sx-tag">シングルソファベッド ×1</span>
+            <span class="sx-tag">マットレス ×1</span>
+            <span class="sx-tag">エアコン</span>
+            <span class="sx-tag">テレビ</span>
+            <span class="sx-tag">高速Wi-Fi</span>
+            <span class="sx-tag">ダイニングテーブル</span>
+            <span class="sx-tag">ハンガー</span>
+            <span class="sx-tag">遮光カーテン</span>
+            <span class="sx-tag">アイロン</span>
+            <span class="sx-tag">アイロン台</span>
+          </div>
         </div>
-
-        <h3>
-          お部屋
-        </h3>
-
-      </div>
-
-
-      <div class="amenity-grid">
-
-        <div class="amenity-item">
-          シングルベッド ×4
-        </div>
-
-        <div class="amenity-item">
-          シングルソファベッド ×1
-        </div>
-
-        <div class="amenity-item">
-          マットレス ×1
-        </div>
-
-        <div class="amenity-item">
-          エアコン
-        </div>
-
-        <div class="amenity-item">
-          テレビ
-        </div>
-
-        <div class="amenity-item">
-          高速Wi-Fi
-        </div>
-
-        <div class="amenity-item">
-          ダイニングテーブル
-        </div>
-
-        <div class="amenity-item">
-          ハンガー
-        </div>
-
-        <div class="amenity-item">
-          遮光カーテン
-        </div>
-
-        <div class="amenity-item">
-          アイロン
-        </div>
-
-        <div class="amenity-item">
-          アイロン台
-        </div>
-
       </div>
 
     </div>
-
 
 
     <!-- =========================
          キッチン
     ========================= -->
 
-    <div class="amenity-category">
+    <div class="sx-acc is-rev">
 
-      <div class="category-title">
+      <button type="button" class="sx-acc-head" aria-expanded="false" aria-controls="sx-acc-2" style="background-image: url('images/amenities/cat-kitchen.jpg')">
+        <span class="sx-acc-label">
+          <span class="sx-acc-num">02</span>
+          <span class="sx-acc-title">キッチン</span>
+        </span>
+        <span class="sx-acc-count">11点</span>
+        <span class="sx-acc-btn"><span class="t-closed">一覧を見る</span><span class="t-open">閉じる</span><span class="sx-acc-icon" aria-hidden="true">+</span></span>
+      </button>
 
-        <div class="category-number">
-          02
+      <div class="sx-acc-body" id="sx-acc-2">
+        <div>
+          <div class="sx-tags">
+            <span class="sx-tag">冷蔵庫</span>
+            <span class="sx-tag">電子レンジ</span>
+            <span class="sx-tag">トースター</span>
+            <span class="sx-tag">電気ケトル</span>
+            <span class="sx-tag">ガスコンロ</span>
+            <span class="sx-tag">フライパン・鍋</span>
+            <span class="sx-tag">包丁・まな板</span>
+            <span class="sx-tag">食器・グラス・マグカップ</span>
+            <span class="sx-tag">カトラリー</span>
+            <span class="sx-tag">キッチン用品一式</span>
+            <span class="sx-tag">電気鍋</span>
+          </div>
         </div>
-
-        <h3>
-          キッチン
-        </h3>
-
-      </div>
-
-
-      <div class="amenity-grid">
-
-        <div class="amenity-item">
-          冷蔵庫
-        </div>
-
-        <div class="amenity-item">
-          電子レンジ
-        </div>
-
-        <div class="amenity-item">
-          トースター
-        </div>
-
-        <div class="amenity-item">
-          電気ケトル
-        </div>
-
-        <div class="amenity-item">
-          ガスコンロ
-        </div>
-
-        <div class="amenity-item">
-          フライパン・鍋
-        </div>
-
-        <div class="amenity-item">
-          包丁・まな板
-        </div>
-
-        <div class="amenity-item">
-          食器・グラス・マグカップ
-        </div>
-
-        <div class="amenity-item">
-          カトラリー
-        </div>
-
-        <div class="amenity-item">
-          キッチン用品一式
-        </div>
-
-        <div class="amenity-item">
-          電気鍋
-        </div>
-
       </div>
 
     </div>
-
 
 
     <!-- =========================
          バスルーム
     ========================= -->
 
-    <div class="amenity-category">
+    <div class="sx-acc">
 
-      <div class="category-title">
+      <button type="button" class="sx-acc-head" aria-expanded="false" aria-controls="sx-acc-3" style="background-image: url('images/amenities/cat-bath.jpg')">
+        <span class="sx-acc-label">
+          <span class="sx-acc-num">03</span>
+          <span class="sx-acc-title">バスルーム</span>
+        </span>
+        <span class="sx-acc-count">8点</span>
+        <span class="sx-acc-btn"><span class="t-closed">一覧を見る</span><span class="t-open">閉じる</span><span class="sx-acc-icon" aria-hidden="true">+</span></span>
+      </button>
 
-        <div class="category-number">
-          03
+      <div class="sx-acc-body" id="sx-acc-3">
+        <div>
+          <div class="sx-tags">
+            <span class="sx-tag">バス・トイレ別</span>
+            <span class="sx-tag">独立洗面台</span>
+            <span class="sx-tag">シャワー・バスタブ</span>
+            <span class="sx-tag">シャンプー</span>
+            <span class="sx-tag">コンディショナー</span>
+            <span class="sx-tag">ボディソープ</span>
+            <span class="sx-tag">ハンドソープ</span>
+            <span class="sx-tag">トイレットペーパー</span>
+          </div>
         </div>
-
-        <h3>
-          バスルーム
-        </h3>
-
-      </div>
-
-
-      <div class="amenity-grid">
-
-        <div class="amenity-item">
-          バス・トイレ別
-        </div>
-
-        <div class="amenity-item">
-          独立洗面台
-        </div>
-
-        <div class="amenity-item">
-          シャワー・バスタブ
-        </div>
-
-        <div class="amenity-item">
-          シャンプー
-        </div>
-
-        <div class="amenity-item">
-          コンディショナー
-        </div>
-
-        <div class="amenity-item">
-          ボディソープ
-        </div>
-
-        <div class="amenity-item">
-          ハンドソープ
-        </div>
-
-        <div class="amenity-item">
-          トイレットペーパー
-        </div>
-
       </div>
 
     </div>
-
 
 
     <!-- =========================
          アメニティ
     ========================= -->
 
-    <div class="amenity-category">
+    <div class="sx-acc is-rev">
 
-      <div class="category-title">
+      <button type="button" class="sx-acc-head" aria-expanded="false" aria-controls="sx-acc-4" style="background-image: url('images/amenities/cat-amenity.jpg')">
+        <span class="sx-acc-label">
+          <span class="sx-acc-num">04</span>
+          <span class="sx-acc-title">アメニティ</span>
+        </span>
+        <span class="sx-acc-count">12点</span>
+        <span class="sx-acc-btn"><span class="t-closed">一覧を見る</span><span class="t-open">閉じる</span><span class="sx-acc-icon" aria-hidden="true">+</span></span>
+      </button>
 
-        <div class="category-number">
-          04
+      <div class="sx-acc-body" id="sx-acc-4">
+        <div>
+          <div class="sx-tags">
+            <span class="sx-tag">バスタオル</span>
+            <span class="sx-tag">フェイスタオル</span>
+            <span class="sx-tag">ドライヤー</span>
+            <span class="sx-tag">ヘアアイロン</span>
+            <span class="sx-tag">洗濯機（全自動乾燥機つき）</span>
+            <span class="sx-tag">洗濯用洗剤</span>
+            <span class="sx-tag">ティッシュ</span>
+            <span class="sx-tag">ゴミ袋</span>
+            <span class="sx-tag">化粧水</span>
+            <span class="sx-tag">乳液</span>
+            <span class="sx-tag">クレンジング</span>
+            <span class="sx-tag">歯ブラシ</span>
+          </div>
         </div>
-
-        <h3>
-          アメニティ
-        </h3>
-
-      </div>
-
-
-      <div class="amenity-grid">
-
-        <div class="amenity-item">
-          バスタオル
-        </div>
-
-        <div class="amenity-item">
-          フェイスタオル
-        </div>
-
-        <div class="amenity-item">
-          ドライヤー
-        </div>
-
-        <div class="amenity-item">
-          ヘアアイロン
-        </div>
-
-        <div class="amenity-item">
-          洗濯機（全自動乾燥機つき）
-        </div>
-
-        <div class="amenity-item">
-          洗濯用洗剤
-        </div>
-
-        <div class="amenity-item">
-          ティッシュ
-        </div>
-
-        <div class="amenity-item">
-          ゴミ袋
-        </div>
-
-        <div class="amenity-item">
-          化粧水
-        </div>
-
-        <div class="amenity-item">
-          乳液
-        </div>
-
-        <div class="amenity-item">
-          クレンジング
-        </div>
-
-        <div class="amenity-item">
-          歯ブラシ
-        </div>
-
       </div>
 
     </div>
-
 
   </section>
 
@@ -1166,7 +927,7 @@
        NOTE
   ========================= -->
 
-  <section class="note">
+  <section class="note sx-note-photo" style="--sx-note-img: url('images/amenities/banner.jpg')">
 
     <div class="note-en">
       ENJOY YOUR STAY
@@ -1224,6 +985,8 @@
     }
 
   </script>
+
+  <script src="assets/site-extras.js" defer></script>
 
 
 </body>

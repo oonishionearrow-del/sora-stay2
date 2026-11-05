@@ -45,7 +45,7 @@
             width: 100%;
             height: 100vh;
 
-            background-image: url("images/index2.jpg");
+            background-image: url("images/top/index2.jpg");
 
             background-size: cover;
 
@@ -418,6 +418,8 @@
 }
     </style>
 
+    <link rel="stylesheet" href="assets/site-extras.css">
+
 </head>
 
 
@@ -449,7 +451,7 @@
         <!-- 左上のロゴ -->
 
         <img
-            src="images/logo.png"
+            src="images/common/logo.png"
             alt="SORAのロゴ"
             class="logo"
         >
@@ -561,8 +563,8 @@
 
         var video = document.createElement("video");
         video.className = "hero-video";
-        video.src = "images/room2.mp4";
-        video.setAttribute("poster", "images/index2.jpg");
+        video.src = "images/top/room2.mp4";
+        video.setAttribute("poster", "images/top/index2.jpg");
         video.autoplay = true;
         video.muted = true;
         video.loop = true;
@@ -697,7 +699,7 @@
 
                     // 重複するメニュー・ロゴ・戻るリンクは削除
                     doc.querySelectorAll(
-                        "#menu, .menu-button, .top-menu, img.logo, footer, .back"
+                        "#menu, .menu-button, .top-menu, img.logo, .sx-bar, footer, .back"
                     ).forEach(function (el) {
                         el.remove();
                     });
@@ -722,19 +724,13 @@
                     }
 
                     // roomページだけ、背景写真は不要なので
-                    // 水色の背景＋グレー文字にする
+                    // 水色の背景にする
                     if (url === "room.html") {
 
                         var overrideStyle = document.createElement("style");
                         overrideStyle.textContent =
                             "#" + scopeId + " { background-image: none !important; background: #eaf6f8 !important; color: #666 !important; }" +
-                            "#" + scopeId + "::before { content: none !important; }" +
-                            "#" + scopeId + " .room-heading-inner { background: none !important; backdrop-filter: none !important; padding: 0 !important; }" +
-                            "#" + scopeId + " .room-heading .en { color: #56a9b7 !important; }" +
-                            "#" + scopeId + " .room-heading h2, #" + scopeId + " .room-heading p { color: #666 !important; text-shadow: none !important; }" +
-                            "#" + scopeId + " .room-desc { background: none !important; backdrop-filter: none !important; padding: 0 25px !important; color: #666 !important; text-shadow: none !important; }" +
-                            "#" + scopeId + " .dot { background: rgba(86, 169, 183, 0.35) !important; }" +
-                            "#" + scopeId + " .dot.active { background: #56a9b7 !important; }";
+                            "#" + scopeId + "::before { content: none !important; }";
                         document.head.appendChild(overrideStyle);
                     }
 
@@ -755,7 +751,7 @@
                         container.appendChild(wave);
                     }
 
-                    // そのページ独自のスクリプト（スライダー等）を実行
+                    // そのページ独自のスクリプトを実行
                     var scriptTag = doc.querySelector("script");
                     if (scriptTag) {
 
@@ -835,5 +831,6 @@
     </script>
 
 
+    <script src="assets/site-extras.js" defer></script>
 </body>
 </html>

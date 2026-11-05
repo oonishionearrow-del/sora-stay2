@@ -220,7 +220,7 @@
           rgba(0,0,0,0.05),
           rgba(0,0,0,0.05)
         ),
-        url("images/access.jpg");
+        url("images/access/access.jpg");
 
       background-size: cover;
 
@@ -281,6 +281,75 @@
       padding: 110px 30px;
 
       text-align: center;
+    }
+
+
+    /* =========================
+       大阪観光ガイド（チラシ）
+       PC：チラシを左、説明を右。スマホ：小さなカード（タップで拡大）
+    ========================= */
+
+    .guide {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 0 30px 110px;
+    }
+
+    .guide-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+    }
+
+    .guide-photo {
+      display: block;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(0, 50, 70, 0.22);
+      cursor: zoom-in;
+      background: #eaf6f8;
+    }
+
+    .guide-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .guide-zoom {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94);
+      color: #1f6f7e;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    .guide-en {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      color: #56a9b7;
+      margin-bottom: 18px;
+    }
+
+    .guide-body h2 {
+      font-size: clamp(23px, 3vw, 34px);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    .guide-body p {
+      font-size: 14px;
+      line-height: 2.2;
+      color: #666;
     }
 
 
@@ -590,6 +659,49 @@
     @media (max-width: 768px) {
 
 
+      /* スマホは小さなカードにして、長さを増やさない */
+
+      .guide {
+        padding: 0 25px 60px;
+      }
+
+      .guide-inner {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .guide-photo {
+        flex: 0 0 104px;
+        border-radius: 6px;
+        box-shadow: 0 6px 16px rgba(0, 50, 70, 0.22);
+      }
+
+      .guide-zoom {
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        padding: 4px 0;
+        text-align: center;
+        font-size: 10px;
+        letter-spacing: 0.04em;
+      }
+
+      .guide-en {
+        margin-bottom: 8px;
+      }
+
+      .guide-body h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .guide-body p {
+        font-size: 12px;
+        line-height: 1.9;
+      }
+
+
       .logo {
 
         width: 140px;
@@ -739,10 +851,17 @@
 
   </style>
 
+  <link rel="stylesheet" href="assets/site-extras.css">
+
 </head>
 
 
-<body>
+<body class="sx-has-bar">
+
+
+  <!-- PC：ロゴを置く上の帯（スマホでは表示しない） -->
+
+  <div class="sx-bar" aria-hidden="true"></div>
 
 
   <!-- =========================
@@ -750,7 +869,7 @@
   ========================= -->
 
   <img
-    src="images/logo.png"
+    src="images/common/logo.png"
     alt="SORAのロゴ"
     class="logo"
   >
@@ -877,6 +996,53 @@
       関西旅行の拠点としてもご利用いただけます。
 
     </p>
+
+  </section>
+
+
+  <!-- =========================
+       大阪観光ガイド（チラシ）
+  ========================= -->
+
+  <section class="guide">
+
+    <div class="guide-inner">
+
+      <a
+        class="sx-zoom guide-photo"
+        href="images/access/guide.jpg"
+        aria-label="大阪観光ガイドを拡大して見る"
+      >
+        <img
+          src="images/access/guide-thumb.jpg"
+          alt="「Discover Osaka from SORA」大阪の人気スポットへのアクセス案内。花園町駅から徒歩3分、なんばまで電車で約3分、関西国際空港まで約45分、ユニバーサル・スタジオ・ジャパンまで約25分"
+          width="480"
+          height="720"
+          loading="lazy"
+          decoding="async"
+        >
+        <span class="guide-zoom">拡大して見る</span>
+      </a>
+
+      <div class="guide-body">
+
+        <div class="guide-en">
+          OSAKA GUIDE
+        </div>
+
+        <h2>
+          大阪観光ガイド
+        </h2>
+
+        <p>
+          なんば・ユニバーサル・スタジオ・ジャパン・関西国際空港など、
+          人気スポットへのアクセスをまとめました。
+          画像を押すと、大きく見られます。
+        </p>
+
+      </div>
+
+    </div>
 
   </section>
 
@@ -1078,6 +1244,8 @@
     }
 
   </script>
+
+  <script src="assets/site-extras.js" defer></script>
 
 
 </body>
